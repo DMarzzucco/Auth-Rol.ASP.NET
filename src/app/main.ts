@@ -8,8 +8,8 @@ export default class App {
     constructor(private port?: string | number) {
         this.app = express()
         this.settings()
-        this.Routers()
         this.middleware()
+        this.Routers()
     }
     settings() {
         this.app.set('port', this.port || process.env.PORT || 3000)
