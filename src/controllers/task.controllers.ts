@@ -11,7 +11,6 @@ export default class TaskControlls {
             if (result.length === 0) {
                 return res.status(400).json({ message: "no task" })
             }
-            console.log(result)
             return res.status(200).json(result)
         } catch (error: any) {
             return res.status(500).json(error.message)
