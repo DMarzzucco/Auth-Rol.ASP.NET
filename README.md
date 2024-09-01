@@ -2,6 +2,33 @@
 
 This repository contains a SQL database request manager for Express applications using TypeScript. The purpose of this manager is to provide greater flexibility and scalability in the handling of CRUD operations within the application, allowing cleaner and more organized management of interactions with the database.
 
+##Service
+The queries manager is located in the ``./service`` folder, there you will find the file ``handler_queries.ts``.
+
+## ORM
+The example found in the file is using requests with the SQL language, but if you want you can use an ORM, such as Prisma.
+
+````TS
+    async get(): Promise<Proms[]> {
+        try {
+            const result = await prisma.base_data.findMany();
+            return result;
+        } catch (error: any) {
+            throw new Error(error.message)
+        }
+    }
+    async post(data: ProducIt): Promise<Proms> {
+        try {
+            const object: ProducIt = { ...data }
+            const result = await prisma.base_date.create({ data: object });
+            )
+            return result;
+        } catch (error: any) {
+            throw new Error(error.message)
+        }
+    }
+````
+
 ## Examples
 
 ```TS
