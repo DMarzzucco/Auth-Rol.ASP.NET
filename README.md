@@ -18,10 +18,9 @@ The example found in the file is using requests with the SQL language, but if yo
         }
     }
     async post(data: ProducIt): Promise<Proms> {
+        const object: ProducIt = { ...data }
         try {
-            const object: ProducIt = { ...data }
             const result = await prisma.base_date.create({ data: object });
-            )
             return result;
         } catch (error: any) {
             throw new Error(error.message)
