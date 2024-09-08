@@ -1,6 +1,6 @@
 ## Discription
 
-Template to handle query operations for Express, using TypeScript. Making use of SOLID design principles. The code is organized into separate classes and modules, following the single responsibility principle to ensure that each component has a single, well-defined responsibility.
+Template to handle service for Express, using TypeScript. Making use of SOLID design principles. The code is organized into separate classes and modules, following the single responsibility principle to ensure that each component has a single, well-defined responsibility.
 
 ## ORM
 The example found in the file is using requests with the SQL language, but if you want you can use an ORM, such as Prisma.
