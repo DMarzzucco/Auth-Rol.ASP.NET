@@ -28,14 +28,15 @@ The example found in the file is using requests with the SQL language, but if yo
 
 ```TS
 /* get operation */
+
     public async  getTask(_req: Request, res: Response) {
-        const result = await db.get()
+        const result = await this.service.get()
         return res.status(200).json(result)
     }
 /* post operation */
   public async createTask(req: Request, res: Response) {
          const object: ProducIt = req.body;
-         const result = await db.post(object)
+         const result = await this.service.post(object)
          return res.status(200).json(result)
     }
 ```
