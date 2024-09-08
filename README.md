@@ -1,9 +1,6 @@
 ## Discription
 
-This repository contains a SQL database request manager for Express applications using TypeScript. The purpose of this manager is to provide greater flexibility and scalability in the handling of CRUD operations within the application, allowing cleaner and more organized management of interactions with the database.
-
-##Service
-The queries manager is located in the ``./service`` folder, there you will find the file ``handler_queries.ts``.
+Template to handle query operations for Express, using TypeScript. Making use of SOLID design principles. The code is organized into separate classes and modules, following the single responsibility principle to ensure that each component has a single, well-defined responsibility.
 
 ## ORM
 The example found in the file is using requests with the SQL language, but if you want you can use an ORM, such as Prisma.
