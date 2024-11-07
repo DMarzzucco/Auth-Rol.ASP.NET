@@ -1,46 +1,12 @@
-## Discription
+# A U T H - R O L - A C X L V L
 
-Template to handle service for Express, using TypeScript. Making use of SOLID design principles. The code is organized into separate classes and modules, following the single responsibility principle to ensure that each component has a single, well-defined responsibility.
+Authorization Registration Application with access levels and user roles.
 
-## ORM
-The example found in the file is using requests with the SQL language, but if you want you can use an ORM, such as Prisma.
+##
 
-````TS
-    async get(): Promise<Proms[]> {
-        try {
-            const result = await prisma.base_data.findMany();
-            return result;
-        } catch (error: any) {
-            throw new Error(error.message)
-        }
-    }
-    async post(data: ProducIt): Promise<Proms> {
-        try {
-            const result = await prisma.base_date.create({ data: data });
-            return result;
-        } catch (error: any) {
-            throw new Error(error.message)
-        }
-    }
-````
-
-## Examples
-
-```TS
-/* get operation */
-
-    public async  getTask(_req: Request, res: Response) {
-        const result = await this.service.get()
-        return res.status(200).json(result)
-    }
-/* post operation */
-  public async createTask(req: Request, res: Response) {
-         const object: ProducIt = req.body;
-         const result = await this.service.post(object)
-         return res.status(200).json(result)
-    }
-```
+>[!IMPORTANT]
+> This application is under development. The reason it is public is for the supervision of alternate development teams
 
 ## Author
 
-Made by Dario Marzzucco (@darmarzz)
+Made by Dario Marzzucco (@darmarzz) & Franco Mazzei
