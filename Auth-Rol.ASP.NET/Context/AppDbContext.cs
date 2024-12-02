@@ -13,6 +13,18 @@ namespace Auth_Rol.ASP.NET.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<UsersModel>(tb =>
+            {
+                tb.HasKey(row => row.Id);
+                tb.Property(row => row.Id).UseIdentityColumn().ValueGeneratedOnAdd();
+
+                tb.Property(row =>row.Username).HasMaxLength(50).IsUnicode();
+                tb.Property(row =>row.Email).HasMaxLength(50).IsUnicode();
+                tb.Property(row =>row.Password).HasMaxLength(50);
+
+            });
+
+            modelBuilder.Entity<UsersModel>().ToTable("Users");
         }
     }
 }
