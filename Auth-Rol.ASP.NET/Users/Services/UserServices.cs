@@ -3,6 +3,7 @@ using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 
 namespace Auth_Rol.ASP.NET.Users.Services
 {
@@ -18,9 +19,25 @@ namespace Auth_Rol.ASP.NET.Users.Services
             this._repository = repository;
         }
 
-        public Task<UsersModel> CreateUser(CreateUserDTO body)
+        public async Task<UsersModel> CreateUser(CreateUserDTO body)
         {
-            throw new NotImplementedException();
+            if (this._repository.ExistsByUsername(body.Username))
+            {
+                throw new Exception("This username already exists");
+            }
+            if (this._repository.ExistsByEmail(body.Email))
+            {
+                throw new Exception("This email already exists");
+            }
+            var data = this._mapper.Map<UsersModel>(body);
+
+            var passwordHasher = new PasswordHasher<UsersModel>();
+
+            data.Password = passwordHasher.HashPassword(data, body.Password);
+
+            await this._repository.AddChangeAsync(data);
+
+            return data;
         }
 
         public async Task<IEnumerable<UsersModel>> GetAll()
@@ -28,18 +45,40 @@ namespace Auth_Rol.ASP.NET.Users.Services
             return await this._repository.ToListAsync();
         }
 
-        public Task<UsersModel> GetById(int id)
+        public async Task<UsersModel> GetById(int id)
         {
-            throw new NotImplementedException();
+            var person = await this._repository.FindByIdAsync(id);
+            if (person == null)
+            {
+                throw new KeyNotFoundException("User not found");
+            }
+            return person;
         }
 
-        public Task<bool> UpdateUser(int id, UpdateUserDTO user)
+        public async Task<bool> UpdateUser(int id, UpdateUserDTO user)
         {
-            throw new NotImplementedException();
+            var data = await this._repository.FindByIdAsync(id);
+
+            if (data == null)
+            {
+                throw new KeyNotFoundException("User not found");
+            }
+            this._mapper.Map(user, data);
+
+            await this._repository.Entry(data);
+
+            return true;
         }
-        public Task<bool> DeleteUser(int id)
+
+        public async Task<bool> DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            var data = await this._repository.FindByIdAsync(id);
+            if (data == null)
+            {
+                throw new KeyNotFoundException("User not found");
+            }
+            await this._repository.RemoveAsync(data);
+            return true;
         }
     }
 }

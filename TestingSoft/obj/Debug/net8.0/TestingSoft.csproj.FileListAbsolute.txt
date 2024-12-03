@@ -97,3 +97,11 @@ C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\obj\Debug\net8.0\
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\obj\Debug\net8.0\TestingSoft.pdb
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\obj\Debug\net8.0\TestingSoft.genruntimeconfig.cache
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\obj\Debug\net8.0\ref\TestingSoft.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\TestingSoft\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

@@ -20,7 +20,7 @@ namespace Auth_Rol.ASP.NET.Context
 
                 tb.Property(row =>row.Username).HasMaxLength(50).IsUnicode();
                 tb.Property(row =>row.Email).HasMaxLength(50).IsUnicode();
-                tb.Property(row =>row.Password).HasMaxLength(50);
+                tb.Property(row =>row.Password);
 
             });
 

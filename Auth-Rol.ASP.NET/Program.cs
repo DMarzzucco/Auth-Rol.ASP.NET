@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
+using Auth_Rol.ASP.NET.Users.Services;
+using Auth_Rol.ASP.NET.Users.Repository.Interface;
+using Auth_Rol.ASP.NET.Users.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +34,7 @@ builder.Services.AddCors(o =>
 });
 
 //JwtBuilderConfigure
-builder.Configuration.AddJsonFile("appsetings.json");
+builder.Configuration.AddJsonFile("appsettings.json");
 
 var secretKey = builder.Configuration.GetSection("JwtSettings").GetSection("secretKey").ToString();
 var keyBytes = Encoding.UTF8.GetBytes(secretKey);
@@ -54,7 +57,8 @@ builder.Services.AddAuthentication(conf =>
 });
 
 // Register Services
-builder.Services.AddScoped<IUserService, IUserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserServices>();
 
 //Register Filter
 builder.Services.AddControllers(op =>

@@ -57,5 +57,17 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             this._context.UserModel.Remove(user);
             await this._context.SaveChangesAsync();
         }
+
+        public async Task AddChangeAsync(UsersModel data) 
+        {
+            this._context.Add(data);
+            await this._context.SaveChangesAsync();
+        }
+
+        public async Task Entry (UsersModel data)
+        {
+            this._context.Entry(data).State = EntityState.Modified;
+            await this._context.SaveChangesAsync();
+        }
     }
 }

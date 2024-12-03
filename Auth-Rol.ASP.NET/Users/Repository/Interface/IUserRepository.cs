@@ -18,5 +18,9 @@ namespace Auth_Rol.ASP.NET.Users.Repository.Interface
         Task SaveChangesAsync();
 
         Task RemoveAsync(UsersModel user);
+
+        Task AddChangeAsync(UsersModel data);
+
+        Task Entry(UsersModel data);
     }
 }

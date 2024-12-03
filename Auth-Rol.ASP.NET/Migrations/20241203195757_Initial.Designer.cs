@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241202140215_Inital Migration")]
-    partial class InitalMigration
+    [Migration("20241203195757_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,8 +40,7 @@ namespace Auth_Rol.ASP.NET.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Username")
                         .IsRequired()
