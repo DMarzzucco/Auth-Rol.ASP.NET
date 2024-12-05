@@ -118,3 +118,5 @@ C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\ne
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\Auth-Rol.ASP.NET.xml
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\obj\Debug\net8.0\Auth-Rol.ASP.NET.xml

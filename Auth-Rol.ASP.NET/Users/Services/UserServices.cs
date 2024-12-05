@@ -32,11 +32,9 @@ namespace Auth_Rol.ASP.NET.Users.Services
             var data = this._mapper.Map<UsersModel>(body);
 
             var passwordHasher = new PasswordHasher<UsersModel>();
-
             data.Password = passwordHasher.HashPassword(data, body.Password);
 
             await this._repository.AddChangeAsync(data);
-
             return data;
         }
 
@@ -65,6 +63,9 @@ namespace Auth_Rol.ASP.NET.Users.Services
             }
             this._mapper.Map(user, data);
 
+            var passwordHasher = new PasswordHasher<UsersModel>();
+            data.Password = passwordHasher.HashPassword(data, user.Password);
+
             await this._repository.Entry(data);
 
             return true;
@@ -79,6 +80,15 @@ namespace Auth_Rol.ASP.NET.Users.Services
             }
             await this._repository.RemoveAsync(data);
             return true;
+        }
+        public async Task<UsersModel> FindByAuth(string key, object value)
+        {
+            var user = await this._repository.FindByKey(key, value);
+            if (user == null)
+            {
+                throw new KeyNotFoundException("User not found");
+            }
+            return user;
         }
     }
 }

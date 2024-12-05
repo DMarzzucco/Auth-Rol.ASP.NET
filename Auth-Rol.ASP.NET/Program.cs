@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Reflection;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
 using Auth_Rol.ASP.NET.Users.Services;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Auth_Rol.ASP.NET.Users.Repository;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,20 +39,23 @@ builder.Services.AddCors(o =>
 builder.Configuration.AddJsonFile("appsettings.json");
 
 var secretKey = builder.Configuration.GetSection("JwtSettings").GetSection("secretKey").ToString();
-var keyBytes = Encoding.UTF8.GetBytes(secretKey);
 
 builder.Services.AddAuthentication(conf =>
 {
     conf.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     conf.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
 }).AddJwtBearer(conf =>
 {
+    var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+    var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256Signature);
+
     conf.RequireHttpsMetadata = false;
     conf.SaveToken = true;
     conf.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+        IssuerSigningKey = signingKey,
         ValidateIssuer = false,
         ValidateAudience = false
     };
@@ -68,7 +73,18 @@ builder.Services.AddControllers(op =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(op =>
+{
+    op.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Auth Rols",
+        Description = "An ASP.NET Core Web Apit Auth Controller"
+    });
+
+    var xmLFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    op.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmLFileName));
+});
 
 //Mapper
 var mappConfig = new MapperConfiguration(m =>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Auth-Rol.ASP.NET</name>
+    </assembly>
+    <members>
+        <member name="T:Auth_Rol.ASP.NET.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.CreateUser(Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO)">
+            <summary>
+            Register a new User
+            </summary>
+            <returns>A new User Register in DB</returns>
+            <response code = "201">User register successfully</response>
+            <response code = "409">Repeat Username o Email </response>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.GetAllUsers">
+            <summary>
+            Get All Users
+            </summary>
+            <returns>Get a List of All Users</returns>
+            <response code = "200">List of Users</response>
+            <response code = "400"> Bad Request</response>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            Get a User
+            </summary>
+            <returns>Return a user by id</returns>
+            <response code = "200">Users</response>
+            <response code = "404">User not found</response>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.UpdateUser(System.Int32,Auth_Rol.ASP.NET.Users.DTO.UpdateUserDTO)">
+            <summary>
+            Update User
+            </summary>
+            <returns>Nothing</returns>
+            <response code = "204">No Content</response>
+            <response code = "404">User not found</response>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Delete a User
+            </summary>
+            <returns>Nothing</returns>
+            <response code = "204">No Content</response>
+            <response code = "404">User not found</response>
+        </member>
+    </members>
+</doc>

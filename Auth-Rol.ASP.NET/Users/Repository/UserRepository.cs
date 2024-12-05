@@ -3,10 +3,11 @@ using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
+using System.Linq.Expressions;
 
 namespace Auth_Rol.ASP.NET.Users.Repository
 {
-  
+
     public class UserRepository : IUserRepository
     {
 
@@ -47,27 +48,40 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             return await this._context.UserModel.FindAsync();
         }
 
-        public async Task SaveChangesAsync ()
-        {
-            await this._context.SaveChangesAsync();
-        }
-
-        public async Task RemoveAsync (UsersModel user)
+        public async Task RemoveAsync(UsersModel user)
         {
             this._context.UserModel.Remove(user);
             await this._context.SaveChangesAsync();
         }
 
-        public async Task AddChangeAsync(UsersModel data) 
+        public async Task AddChangeAsync(UsersModel data)
         {
             this._context.Add(data);
             await this._context.SaveChangesAsync();
         }
 
-        public async Task Entry (UsersModel data)
+        public async Task Entry(UsersModel data)
         {
             this._context.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
+        }
+
+        public async Task<UsersModel?> FindByKey(string key, object value)
+        {
+            var user = await this._context.UserModel
+                .AsQueryable()
+                .Where(u => EF.Property<object>(u, key).Equals(value))
+                .SingleOrDefaultAsync();
+            //var parameter = Expression.Parameter(typeof(UsersModel), "user");
+            //var property = Expression.Property(parameter, key);
+            //var constant = Expression.Constant(value);
+            //var equality = Expression.Equal(property, constant);
+            //var predicate = Expression.Lambda<Func<UsersModel, bool>>(equality, parameter);
+
+            //return await _context.UserModel
+            //    .Where(predicate)
+            //    .SingleOrDefaultAsync();
+            return user;
         }
     }
 }

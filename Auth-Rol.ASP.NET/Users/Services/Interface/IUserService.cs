@@ -14,5 +14,7 @@ namespace Auth_Rol.ASP.NET.Users.Services.Interface
         Task<bool> UpdateUser(int id, UpdateUserDTO user);
 
         Task<bool> DeleteUser(int id);
+
+        Task<UsersModel> FindByAuth(string key, object value);
     }
 }
