@@ -1,13 +1,6 @@
 ﻿using Auth_Rol.ASP.NET.Auth.DTO;
-using Auth_Rol.ASP.NET.Users.Model;
+using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using Auth_Rol.ASP.NET.Users.Services.Interface;
-using Microsoft.AspNetCore.Identity;
-using System.Text;
 
 namespace Auth_Rol.ASP.NET.Auth.Controller
 {
@@ -15,45 +8,33 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly string secretKey;
-        private readonly IUserService _userService;
+        private readonly IAuthServices _services;
 
-        public AuthController(IConfiguration config, IUserService userService)
+        public AuthController(IAuthServices services)
         {
-            this.secretKey = config.GetSection("JwtSettings").GetSection("secretKey").ToString();
-            this._userService = userService;
+            this._services = services;
         }
 
+        /// <summary>
+        /// Login User
+        /// </summary>
+        /// <returns>User token</returns>
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] AuthDTO body)
         {
-            //user validate
-            var user = await this._userService.FindByAuth("Username", body.Username);
-            var passwordHasher = new PasswordHasher<UsersModel>();
-
-            var verificationResult = passwordHasher.VerifyHashedPassword(user, user.Password, body.Password);
-            if (verificationResult == PasswordVerificationResult.Failed)
+            try
             {
-                return Unauthorized("Password wrong");
+                await this._services.ValidationUser(body);
+
+                var newToken = await this._services.GenerateToken(body.Username);
+
+                return StatusCode(StatusCodes.Status200OK, new { token = newToken });
             }
-            // generate token
-            var keyBytes = Encoding.ASCII.GetBytes(secretKey);
-            var claims = new ClaimsIdentity();
-            claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, body.Username));
-
-            var tokenDescriptor = new SecurityTokenDescriptor
+            catch (Exception ex)
             {
-                Subject = claims,
-                Expires = DateTime.UtcNow.AddDays(2),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
-            };
+                return Unauthorized(ex.Message);
+            }
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenConfig = tokenHandler.CreateToken(tokenDescriptor);
-
-            string newToken = tokenHandler.WriteToken(tokenConfig);
-
-            return StatusCode(StatusCodes.Status200OK, new { token = newToken});
         }
     }
 }

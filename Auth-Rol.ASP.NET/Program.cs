@@ -14,6 +14,8 @@ using Auth_Rol.ASP.NET.Users.Services;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Auth_Rol.ASP.NET.Users.Repository;
 using Microsoft.OpenApi.Models;
+using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
+using Auth_Rol.ASP.NET.Auth.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +64,10 @@ builder.Services.AddAuthentication(conf =>
 });
 
 // Register Services
+
+//AuthSerives
+builder.Services.AddScoped<IAuthServices, AuthServices>();
+//UserServices
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserServices>();
 

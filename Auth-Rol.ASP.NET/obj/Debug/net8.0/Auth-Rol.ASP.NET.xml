@@ -4,6 +4,12 @@
         <name>Auth-Rol.ASP.NET</name>
     </assembly>
     <members>
+        <member name="M:Auth_Rol.ASP.NET.Auth.Controller.AuthController.Login(Auth_Rol.ASP.NET.Auth.DTO.AuthDTO)">
+            <summary>
+            Login User
+            </summary>
+            <returns>User token</returns>
+        </member>
         <member name="T:Auth_Rol.ASP.NET.Migrations.Initial">
             <inheritdoc />
         </member>

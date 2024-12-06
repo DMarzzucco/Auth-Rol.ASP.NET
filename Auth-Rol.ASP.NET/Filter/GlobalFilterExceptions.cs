@@ -23,7 +23,7 @@ namespace Auth_Rol.ASP.NET.Filter
                 StatusCode = statusCode,
                 Message = statusCode == 500
                 ? "Internal Error Server, Please try again later."
-                : " Resource not found",
+                : "A error ocurred",
                 Details = statusCode == 500 ? null : ctx.Exception.Message
             };
             ctx.Result = new ObjectResult(response)
