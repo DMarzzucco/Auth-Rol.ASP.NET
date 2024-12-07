@@ -81,12 +81,14 @@ builder.Services.AddControllers(op =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(op =>
 {
+    op.EnableAnnotations();
     op.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
         Title = "Auth Rols",
         Description = "An ASP.NET Core Web Apit Auth Controller"
     });
+    op.SchemaFilter<SwaggerSchemaExampleFilter>();
 
     var xmLFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     op.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmLFileName));
