@@ -25,6 +25,9 @@ var connectionString = builder.Configuration.GetConnectionString("Connection");
 //Register Server
 builder.Services.AddDbContext<AppDbContext>(op => op.UseNpgsql(connectionString));
 
+//Add httpContext
+builder.Services.AddHttpContextAccessor();
+
 //Cors Policy
 builder.Services.AddCors(o =>
 {

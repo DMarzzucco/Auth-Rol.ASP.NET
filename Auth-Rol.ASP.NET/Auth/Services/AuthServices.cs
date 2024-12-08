@@ -14,11 +14,13 @@ namespace Auth_Rol.ASP.NET.Auth.Services
     {
         private readonly string secretKey;
         private readonly IUserService _userService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthServices(IConfiguration config, IUserService userService)
+        public AuthServices(IConfiguration config, IUserService userService, IHttpContextAccessor httpContextAccessor)
         {
             this.secretKey = config.GetSection("JwtSettings").GetSection("secretKey").ToString();
             this._userService = userService;
+            this._httpContextAccessor = httpContextAccessor;
         }
 
         //Validate User 
@@ -36,22 +38,37 @@ namespace Auth_Rol.ASP.NET.Auth.Services
         }
 
         // Generate Token
-        public Task<string> GenerateToken(string Username )
+        public Task<string> GenerateToken(UsersModel body)
         {
             var keyBytes = Encoding.ASCII.GetBytes(secretKey);
-            var claims = new ClaimsIdentity();
-            claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, Username));
+
+            var claims = new List<Claim>
+            {
+                new Claim("sub", body.Id.ToString()),
+                new Claim("role", body.Roles.ToString())
+            };
 
             var tokenDecriptor = new SecurityTokenDescriptor
             {
-                Subject = claims,
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddDays(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenConfig = tokenHandler.CreateToken(tokenDecriptor);
 
-            return Task.FromResult(tokenHandler.WriteToken(tokenConfig));
+            var accessToken = tokenHandler.WriteToken(tokenConfig);
+
+            this._httpContextAccessor.HttpContext.Response.Cookies.Append("Authentication", accessToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                Expires = DateTime.UtcNow.AddDays(2),
+                SameSite = SameSiteMode.Strict
+
+            });
+
+            return Task.FromResult(accessToken);
         }
     }
 }

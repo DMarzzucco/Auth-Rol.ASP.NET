@@ -24,9 +24,9 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         {
             try
             {
-                await this._services.ValidationUser(body);
+                var user = await this._services.ValidationUser(body);
 
-                var newToken = await this._services.GenerateToken(body.Username);
+                var newToken = await this._services.GenerateToken(user);
 
                 return StatusCode(StatusCodes.Status200OK, new { token = newToken });
             }
