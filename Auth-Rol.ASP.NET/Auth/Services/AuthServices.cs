@@ -30,17 +30,20 @@ namespace Auth_Rol.ASP.NET.Auth.Services
             var passwordHasher = new PasswordHasher<UsersModel>();
 
             var verificationResult = passwordHasher.VerifyHashedPassword(user, user.Password, body.Password);
+
             if (verificationResult == PasswordVerificationResult.Failed)
             {
-                throw new Exception("Password wrong");
+                throw new UnauthorizedAccessException("Password wrong");
             }
+
             return user;
         }
+
 
         // Generate Token
         public Task<string> GenerateToken(UsersModel body)
         {
-            var keyBytes = Encoding.ASCII.GetBytes(secretKey);
+            var keyBytes = Encoding.UTF8.GetBytes(secretKey);
 
             var claims = new List<Claim>
             {
@@ -69,6 +72,14 @@ namespace Auth_Rol.ASP.NET.Auth.Services
             });
 
             return Task.FromResult(accessToken);
+        }
+
+        public async Task<UsersModel> GetProfile() 
+        {
+            var token = this._httpContextAccessor.HttpContext.Request.Cookies["Authentication"];
+
+            if (token == null) throw new UnauthorizedAccessException("Token not found");
+
         }
     }
 }

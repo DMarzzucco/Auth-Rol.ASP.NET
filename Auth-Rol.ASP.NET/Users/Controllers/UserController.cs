@@ -29,15 +29,8 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<UsersModel>> CreateUser([FromBody] CreateUserDTO user)
         {
-            try
-            {
-                var body = await this._service.CreateUser(user);
-                return CreatedAtAction(nameof(GetAllUsers), new { id = body.Id }, body);
-            }
-            catch (Exception ex)
-            {
-                return Conflict(ex.Message);
-            }
+            var body = await this._service.CreateUser(user);
+            return CreatedAtAction(nameof(GetAllUsers), new { id = body.Id }, body);
         }
 
         /// <summary>
@@ -65,15 +58,8 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<UsersModel>> GetUserById(int id)
         {
-            try
-            {
-                var user = await this._service.GetById(id);
-                return Ok(user);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound();
-            }
+            var user = await this._service.GetById(id);
+            return Ok(user);
         }
 
         /// <summary>

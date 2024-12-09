@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Auth_Rol.ASP.NET.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Auth_Rol.ASP.NET.Filter
@@ -14,17 +15,29 @@ namespace Auth_Rol.ASP.NET.Filter
 
         public void OnException(ExceptionContext ctx)
         {
-            this._logger.LogError(ctx.Exception, "Internal Error Server");
+            this._logger.LogError(ctx.Exception, "Unhandled Exception occurred");
 
-            var statusCode = ctx.Exception is KeyNotFoundException ? 404 : 500;
+            var statusCode = ctx.Exception switch
+            {
+                BadRequestException => 400,
+                KeyNotFoundException => 404,
+                UnauthorizedAccessException => 401,
+                ConflictException => 409,
+                _ => 500
+            };
 
             var response = new ErrorResponse
             {
                 StatusCode = statusCode,
-                Message = statusCode == 500
-                ? "Internal Error Server, Please try again later."
-                : "A error ocurred",
-                Details = statusCode == 500 ? null : ctx.Exception.Message
+                Message = statusCode switch
+                {
+                    400 => ctx.Exception.Message,
+                    401 => ctx.Exception.Message,
+                    404 => ctx.Exception.Message,
+                    409 => ctx.Exception.Message,
+                    _ => ctx.Exception.Message
+                },
+                Details = ctx.Exception.Message
             };
             ctx.Result = new ObjectResult(response)
             {

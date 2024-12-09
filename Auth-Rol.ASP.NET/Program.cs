@@ -16,6 +16,7 @@ using Auth_Rol.ASP.NET.Users.Repository;
 using Microsoft.OpenApi.Models;
 using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
 using Auth_Rol.ASP.NET.Auth.Services;
+using Auth_Rol.ASP.NET.Auth.Filter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,19 +67,21 @@ builder.Services.AddAuthentication(conf =>
     };
 });
 
-// Register Services
-
-//AuthSerives
-builder.Services.AddScoped<IAuthServices, AuthServices>();
-//UserServices
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserServices>();
-
 //Register Filter
 builder.Services.AddControllers(op =>
 {
     op.Filters.Add<GlobalFilterExceptions>();
 });
+// Register Services
+
+//GlobalFilterException
+builder.Services.AddScoped<GlobalFilterExceptions>();
+//AuthSerives
+builder.Services.AddScoped<LocalAuthFilter>();
+builder.Services.AddScoped<IAuthServices, AuthServices>();
+//UserServices
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserServices>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

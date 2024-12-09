@@ -1,5 +1,7 @@
 ﻿using Auth_Rol.ASP.NET.Auth.DTO;
+using Auth_Rol.ASP.NET.Auth.Filter;
 using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
+using Auth_Rol.ASP.NET.Users.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auth_Rol.ASP.NET.Auth.Controller
@@ -19,22 +21,14 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         /// Login User
         /// </summary>
         /// <returns>User token</returns>
+        [ServiceFilter(typeof(LocalAuthFilter))]
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] AuthDTO body)
         {
-            try
-            {
-                var user = await this._services.ValidationUser(body);
+            var user = HttpContext.Items["User"] as UsersModel;
+            var newToken = await this._services.GenerateToken(user);
 
-                var newToken = await this._services.GenerateToken(user);
-
-                return StatusCode(StatusCodes.Status200OK, new { token = newToken });
-            }
-            catch (Exception ex)
-            {
-                return Unauthorized(ex.Message);
-            }
-
+            return StatusCode(StatusCodes.Status200OK, new { token = newToken });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Auth_Rol.ASP.NET.Users.DTO;
+﻿using Auth_Rol.ASP.NET.Exceptions;
+using Auth_Rol.ASP.NET.Users.DTO;
 using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
@@ -23,11 +24,11 @@ namespace Auth_Rol.ASP.NET.Users.Services
         {
             if (this._repository.ExistsByUsername(body.Username))
             {
-                throw new Exception("This username already exists");
+                throw new ConflictException("This username already exists");
             }
             if (this._repository.ExistsByEmail(body.Email))
             {
-                throw new Exception("This email already exists");
+                throw new ConflictException("This email already exists");
             }
             var data = this._mapper.Map<UsersModel>(body);
 
