@@ -121,3 +121,4 @@ C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\ne
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\Auth-Rol.ASP.NET.xml
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\obj\Debug\net8.0\Auth-Rol.ASP.NET.xml
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Auth-Rol.ASP.NET\bin\Debug\net8.0\BCrypt.Net-Next.dll

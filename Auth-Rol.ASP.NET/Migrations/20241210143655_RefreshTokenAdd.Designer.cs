@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241207124059_Initial")]
-    partial class Initial
+    [Migration("20241210143655_RefreshTokenAdd")]
+    partial class RefreshTokenAdd
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,9 @@ namespace Auth_Rol.ASP.NET.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("RefreshToken")
                         .HasColumnType("text");
 
                     b.Property<string>("Roles")

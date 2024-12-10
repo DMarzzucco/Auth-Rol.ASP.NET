@@ -54,6 +54,9 @@ namespace Auth_Rol.ASP.NET.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
+
                     b.Property<string>("Roles")
                         .IsRequired()
                         .HasMaxLength(20)

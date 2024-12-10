@@ -34,7 +34,7 @@ namespace Auth_Rol.ASP.NET.Context
                     v => (ROLES)Enum.Parse(typeof(ROLES), v)
                     ).HasMaxLength(20).IsUnicode(false);
 
-
+                tb.Property(row => row.RefreshToken).IsRequired(false);
             });
 
             modelBuilder.Entity<UsersModel>().ToTable("Users");

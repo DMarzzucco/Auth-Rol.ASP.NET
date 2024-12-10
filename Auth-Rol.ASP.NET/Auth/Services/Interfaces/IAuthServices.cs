@@ -8,5 +8,9 @@ namespace Auth_Rol.ASP.NET.Auth.Services.Interfaces
         Task<UsersModel> ValidationUser(AuthDTO body);
 
         Task<string> GenerateToken(UsersModel body);
+
+        Task<UsersModel> GetUserProfile();
+
+        Task<string> GetProfile();
     }
 }

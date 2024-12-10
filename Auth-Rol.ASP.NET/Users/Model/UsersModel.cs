@@ -36,5 +36,8 @@ namespace Auth_Rol.ASP.NET.Users.Model
         [SwaggerSchema("User Rol")]
         [SwaggerSchemaExample("ADMIN")]
         public required ROLES Roles { get; set; }
+
+        [SwaggerIgnore]
+        public string? RefreshToken { get; set; }
     }
 }

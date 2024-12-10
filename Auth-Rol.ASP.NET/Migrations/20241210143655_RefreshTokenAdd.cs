@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class RefreshTokenAdd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,8 @@ namespace Auth_Rol.ASP.NET.Migrations
                     Username = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
-                    Roles = table.Column<string>(type: "character varying(20)", unicode: false, maxLength: 20, nullable: false)
+                    Roles = table.Column<string>(type: "character varying(20)", unicode: false, maxLength: 20, nullable: false),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

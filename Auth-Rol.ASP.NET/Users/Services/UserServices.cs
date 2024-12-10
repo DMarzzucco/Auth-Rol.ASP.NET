@@ -22,14 +22,10 @@ namespace Auth_Rol.ASP.NET.Users.Services
 
         public async Task<UsersModel> CreateUser(CreateUserDTO body)
         {
-            if (this._repository.ExistsByUsername(body.Username))
-            {
-                throw new ConflictException("This username already exists");
-            }
-            if (this._repository.ExistsByEmail(body.Email))
-            {
-                throw new ConflictException("This email already exists");
-            }
+            if (this._repository.ExistsByUsername(body.Username)) throw new ConflictException("This Username already exists");
+
+            if (this._repository.ExistsByEmail(body.Email)) throw new ConflictException("This email already exists");
+
             var data = this._mapper.Map<UsersModel>(body);
 
             var passwordHasher = new PasswordHasher<UsersModel>();
@@ -47,48 +43,51 @@ namespace Auth_Rol.ASP.NET.Users.Services
         public async Task<UsersModel> GetById(int id)
         {
             var person = await this._repository.FindByIdAsync(id);
-            if (person == null)
-            {
-                throw new KeyNotFoundException("User not found");
-            }
+            if (person == null) throw new KeyNotFoundException("User not found");
             return person;
         }
 
-        public async Task<bool> UpdateUser(int id, UpdateUserDTO user)
+        public async Task<UsersModel> UpdateUser(int id, UpdateUserDTO user)
         {
             var data = await this._repository.FindByIdAsync(id);
+            if (data == null) throw new KeyNotFoundException("User not found");
 
-            if (data == null)
-            {
-                throw new KeyNotFoundException("User not found");
-            }
             this._mapper.Map(user, data);
 
             var passwordHasher = new PasswordHasher<UsersModel>();
             data.Password = passwordHasher.HashPassword(data, user.Password);
 
-            await this._repository.Entry(data);
+            await this._repository.UpdateAsync(data);
 
-            return true;
+            return data;
         }
 
-        public async Task<bool> DeleteUser(int id)
+        public async Task DeleteUser(int id)
         {
             var data = await this._repository.FindByIdAsync(id);
-            if (data == null)
-            {
-                throw new KeyNotFoundException("User not found");
-            }
+            if (data == null) throw new KeyNotFoundException("User not found");
+
             await this._repository.RemoveAsync(data);
-            return true;
         }
+
+        //Fin by key and value
         public async Task<UsersModel> FindByAuth(string key, object value)
         {
             var user = await this._repository.FindByKey(key, value);
-            if (user == null)
-            {
-                throw new KeyNotFoundException("User not found");
-            }
+            if (user == null) throw new KeyNotFoundException("User not found");
+
+            return user;
+        }
+
+        //Refresh Token Update
+        public async Task<UsersModel> updateToken(int id, string RefreshToken)
+        {
+            var user = await this._repository.FindByIdAsync(id);
+            if (user == null) throw new UnauthorizedAccessException("Invalid Id Provider");
+
+            user.RefreshToken = RefreshToken;
+
+            await this._repository.UpdateAsync(user);
             return user;
         }
     }

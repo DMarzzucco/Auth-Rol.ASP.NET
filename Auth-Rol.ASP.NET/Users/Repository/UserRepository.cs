@@ -60,7 +60,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             await this._context.SaveChangesAsync();
         }
 
-        public async Task Entry(UsersModel data)
+        public async Task UpdateAsync(UsersModel data)
         {
             this._context.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();

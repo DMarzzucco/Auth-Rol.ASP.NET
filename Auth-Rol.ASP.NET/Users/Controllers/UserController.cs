@@ -27,7 +27,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
-        public async Task<ActionResult<UsersModel>> CreateUser([FromBody] CreateUserDTO user)
+        public async Task<ActionResult<UsersModel>> RegisterUser([FromBody] CreateUserDTO user)
         {
             var body = await this._service.CreateUser(user);
             return CreatedAtAction(nameof(GetAllUsers), new { id = body.Id }, body);
@@ -73,10 +73,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDTO body)
         {
-            if (!await this._service.UpdateUser(id, body))
-            {
-                return NotFound();
-            }
+            await this._service.UpdateUser(id, body);
             return NoContent();
         }
 
@@ -91,10 +88,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            if (!await this._service.DeleteUser(id))
-            {
-                return NotFound();
-            }
+            await this._service.DeleteUser(id);
             return NoContent();
         }
 

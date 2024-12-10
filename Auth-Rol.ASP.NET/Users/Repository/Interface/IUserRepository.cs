@@ -20,7 +20,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository.Interface
 
         Task AddChangeAsync(UsersModel data);
 
-        Task Entry(UsersModel data);
+        Task UpdateAsync(UsersModel data);
 
         Task<UsersModel?> FindByKey(string key, object value);
     }

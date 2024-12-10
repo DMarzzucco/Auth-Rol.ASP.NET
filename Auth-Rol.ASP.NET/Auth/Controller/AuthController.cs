@@ -22,6 +22,8 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         /// </summary>
         /// <returns>User token</returns>
         [ServiceFilter(typeof(LocalAuthFilter))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpPost]
         public async Task<ActionResult> Login([FromBody] AuthDTO body)
         {
@@ -29,6 +31,19 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
             var newToken = await this._services.GenerateToken(user);
 
             return StatusCode(StatusCodes.Status200OK, new { token = newToken });
+        }
+
+        /// <summary>
+        /// Get Profile
+        /// </summary>
+        /// <returns>Get User Profile </returns>
+        [HttpGet("profile")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<string>> GetProfile()
+        {
+            var user = await this._services.GetProfile();
+            return Ok(user);
         }
     }
 }
