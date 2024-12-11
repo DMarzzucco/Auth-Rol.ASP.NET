@@ -12,5 +12,9 @@ namespace Auth_Rol.ASP.NET.Auth.Services.Interfaces
         Task<UsersModel> GetUserProfile();
 
         Task<string> GetProfile();
+
+        Task<UsersModel> RefreshTokenValidate(string refreshToken, int id);
+
+        Task LogOut();
     }
 }

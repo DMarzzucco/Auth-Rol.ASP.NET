@@ -76,6 +76,8 @@ builder.Services.AddControllers(op =>
 
 //GlobalFilterException
 builder.Services.AddScoped<GlobalFilterExceptions>();
+//JwtAuth
+builder.Services.AddScoped<JwtAuthFilter>();
 //AuthSerives
 builder.Services.AddScoped<LocalAuthFilter>();
 builder.Services.AddScoped<IAuthServices, AuthServices>();

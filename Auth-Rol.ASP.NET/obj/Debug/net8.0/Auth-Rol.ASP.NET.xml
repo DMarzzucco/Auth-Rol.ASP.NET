@@ -16,6 +16,12 @@
             </summary>
             <returns>Get User Profile </returns>
         </member>
+        <member name="M:Auth_Rol.ASP.NET.Auth.Controller.AuthController.LogOut">
+            <summary>
+            Log Out
+            </summary>
+            <returns>A Log Out Successfully </returns>
+        </member>
         <member name="T:Auth_Rol.ASP.NET.Migrations.RefreshTokenAdd">
             <inheritdoc />
         </member>

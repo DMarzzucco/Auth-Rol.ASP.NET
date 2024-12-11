@@ -1,4 +1,5 @@
-﻿using Auth_Rol.ASP.NET.Users.DTO;
+﻿using Auth_Rol.ASP.NET.Auth.Attribute;
+using Auth_Rol.ASP.NET.Users.DTO;
 using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Get a List of All Users</returns>
         /// <response code = "200">List of Users</response>
         /// <response code = "400"> Bad Request</response>
+        [JwtAuth]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

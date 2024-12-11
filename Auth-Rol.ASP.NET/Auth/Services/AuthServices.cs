@@ -95,6 +95,42 @@ namespace Auth_Rol.ASP.NET.Auth.Services
             return user;
         }
 
+        //RefreshTokenValidate
+        public async Task<UsersModel> RefreshTokenValidate(string refreshToken, int id)
+        {
+            var user = await this._userService.GetById(id);
+
+            var match = BCrypt.Net.BCrypt.Equals(refreshToken, user.RefreshToken);
+            if (match == null) throw new UnauthorizedAccessException();
+
+            return user;
+        }
+
+        //LogOut
+        public async Task LogOut()
+        {
+            var user = await this.GetUserProfile();
+            await this._userService.updateToken(user.Id, null);
+
+            this._httpContextAccessor.HttpContext.Response.Cookies.Append("Authentication", "", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                Expires = DateTime.UnixEpoch,
+                SameSite = SameSiteMode.Strict
+            });
+
+            this._httpContextAccessor.HttpContext.Response.Cookies.Append("RefreshToken", "", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                Expires = DateTime.UnixEpoch,
+                SameSite = SameSiteMode.Strict
+            });
+        }
+
+
+        //Get Profile
         public async Task<string> GetProfile()
         {
             var user = await this.GetUserProfile();

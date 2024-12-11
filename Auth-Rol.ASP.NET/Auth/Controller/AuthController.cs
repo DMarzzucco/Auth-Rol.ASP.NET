@@ -1,4 +1,5 @@
-﻿using Auth_Rol.ASP.NET.Auth.DTO;
+﻿using Auth_Rol.ASP.NET.Auth.Attribute;
+using Auth_Rol.ASP.NET.Auth.DTO;
 using Auth_Rol.ASP.NET.Auth.Filter;
 using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
 using Auth_Rol.ASP.NET.Users.Model;
@@ -44,6 +45,20 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         {
             var user = await this._services.GetProfile();
             return Ok(user);
+        }
+
+        /// <summary>
+        /// Log Out
+        /// </summary>
+        /// <returns>A Log Out Successfully </returns>
+        [HttpPost("logout")]
+        [JwtAuth]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> LogOut()
+        {
+            await this._services.LogOut();
+            return Ok(new { message = "Log Out successfully" });   
         }
     }
 }
