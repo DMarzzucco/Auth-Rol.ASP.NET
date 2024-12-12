@@ -1,12 +1,12 @@
 ﻿using Auth_Rol.ASP.NET.Auth.Filter;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Auth_Rol.ASP.NET.Auth.Attribute
+namespace Auth_Rol.ASP.NET.Auth.Attributes
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class JwtAuthAttribute: TypeFilterAttribute
+    public class AuthRolesAttribute:TypeFilterAttribute
     {
-        public JwtAuthAttribute(): base (typeof (JwtAuthFilter))
+        public AuthRolesAttribute():base(typeof (RolesAuthentication))
         {
             
         }

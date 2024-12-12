@@ -1,4 +1,6 @@
-﻿using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
+﻿using Auth_Rol.ASP.NET.Auth.Attributes;
+using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
@@ -21,6 +23,10 @@ namespace Auth_Rol.ASP.NET.Auth.Filter
 
         public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
+            var hasAllowAnonymousAccess = context.ActionDescriptor.EndpointMetadata.Any(md => md is AllowAnonymousAccessAttribute);
+
+            if (hasAllowAnonymousAccess) return;
+
             var token = this._httpContextAccessor.HttpContext.Request.Cookies["Authentication"];
 
             if (string.IsNullOrEmpty(token))
@@ -29,7 +35,7 @@ namespace Auth_Rol.ASP.NET.Auth.Filter
                 {
                     StatusCode = StatusCodes.Status401Unauthorized,
                     Content = "Invalid or not provided token.",
-                    ContentType = "application/json" 
+                    ContentType = "application/json"
                 };
                 return;
             }

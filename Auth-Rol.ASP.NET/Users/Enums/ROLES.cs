@@ -3,7 +3,7 @@
     public enum ROLES
     {
         ADMIN = 1,
-        BASIC = 2,
-        CREATOR = 3
+        CREATOR = 2,
+        BASIC = 3,
     }
 }

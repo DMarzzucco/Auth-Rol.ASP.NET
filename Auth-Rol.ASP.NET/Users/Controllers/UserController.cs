@@ -1,5 +1,6 @@
-﻿using Auth_Rol.ASP.NET.Auth.Attribute;
+﻿using Auth_Rol.ASP.NET.Auth.Attributes;
 using Auth_Rol.ASP.NET.Users.DTO;
+using Auth_Rol.ASP.NET.Users.Enums;
 using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -7,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Auth_Rol.ASP.NET.Users.Controllers
 {
     [Route("api/[controller]")]
+    [JwtAuth]
     [ApiController]
-
     public class UserController : ControllerBase
     {
 
@@ -25,6 +26,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>A new User Register in DB</returns>
         /// <response code = "201">User register successfully</response>
         /// <response code = "409">Repeat Username o Email </response>
+        [AllowAnonymousAccess]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -40,7 +42,8 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Get a List of All Users</returns>
         /// <response code = "200">List of Users</response>
         /// <response code = "400"> Bad Request</response>
-        [JwtAuth]
+        [AuthRoles]
+        [RolesAccess(ROLES.BASIC)]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -55,6 +58,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Return a user by id</returns>
         /// <response code = "200">Users</response>
         /// <response code = "404">User not found</response>
+        //[RolesAccess((int)Auth_Rol.ASP.NET.Users.Enums.ROLES.CREATOR)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

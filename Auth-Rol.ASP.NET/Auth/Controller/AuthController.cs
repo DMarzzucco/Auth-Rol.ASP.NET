@@ -1,4 +1,4 @@
-﻿using Auth_Rol.ASP.NET.Auth.Attribute;
+﻿using Auth_Rol.ASP.NET.Auth.Attributes;
 using Auth_Rol.ASP.NET.Auth.DTO;
 using Auth_Rol.ASP.NET.Auth.Filter;
 using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Auth_Rol.ASP.NET.Auth.Controller
 {
     [Route("api/[controller]")]
+    [JwtAuth]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -22,6 +23,7 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         /// Login User
         /// </summary>
         /// <returns>User token</returns>
+        [AllowAnonymousAccess]
         [ServiceFilter(typeof(LocalAuthFilter))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -52,7 +54,6 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         /// </summary>
         /// <returns>A Log Out Successfully </returns>
         [HttpPost("logout")]
-        [JwtAuth]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> LogOut()
