@@ -13,9 +13,9 @@ namespace Auth_Rol.ASP.NET.Auth.Filter
 
             if (hasAllowAnonymousAccess) return;
 
-            var userRole = context.HttpContext.Items["UserRole"]?.ToString();
+            var userRoleString = context.HttpContext.Items["UserRole"]?.ToString();
 
-            if (string.IsNullOrEmpty(userRole))
+            if (string.IsNullOrEmpty(userRoleString))
             {
                 context.Result = new ContentResult
                 {
@@ -25,13 +25,24 @@ namespace Auth_Rol.ASP.NET.Auth.Filter
                 };
                 return;
             }
-            if (userRole == ROLES.ADMIN.ToString()) return;
+
+            if (!Enum.TryParse(userRoleString, out ROLES userRole))
+            {
+                context.Result = new ContentResult
+                {
+                    StatusCode = StatusCodes.Status403Forbidden,
+                    Content = "Invalid Role",
+                    ContentType = "application/json"
+                };
+                return;
+            }
+            if (userRole == ROLES.ADMIN) return;
 
             var requiredRoles = context.ActionDescriptor.EndpointMetadata
                             .OfType<RolesAccessAttribute>()
                             .FirstOrDefault()?.Roles;
 
-            bool isAuthorized = requiredRoles.Any(role => Enum.GetName(typeof(ROLES), role) == userRole);
+            bool isAuthorized = requiredRoles.Any(role => (int)userRole <= (int)role);
 
             if (!isAuthorized)
             {

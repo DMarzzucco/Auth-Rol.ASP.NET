@@ -9,6 +9,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
 {
     [Route("api/[controller]")]
     [JwtAuth]
+    [AuthRoles]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -42,7 +43,6 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Get a List of All Users</returns>
         /// <response code = "200">List of Users</response>
         /// <response code = "400"> Bad Request</response>
-        [AuthRoles]
         [RolesAccess(ROLES.BASIC)]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -58,7 +58,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Return a user by id</returns>
         /// <response code = "200">Users</response>
         /// <response code = "404">User not found</response>
-        //[RolesAccess((int)Auth_Rol.ASP.NET.Users.Enums.ROLES.CREATOR)]
+        [RolesAccess(ROLES.ADMIN)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -74,6 +74,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Nothing</returns>
         /// <response code = "204">No Content</response>
         /// <response code = "404">User not found</response>
+        [RolesAccess(ROLES.ADMIN)]
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -89,6 +90,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <returns>Nothing</returns>
         /// <response code = "204">No Content</response>
         /// <response code = "404">User not found</response>
+        [RolesAccess(ROLES.ADMIN)]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

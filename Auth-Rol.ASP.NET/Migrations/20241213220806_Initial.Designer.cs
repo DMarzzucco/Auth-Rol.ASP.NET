@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241210143655_RefreshTokenAdd")]
-    partial class RefreshTokenAdd
+    [Migration("20241213220806_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
