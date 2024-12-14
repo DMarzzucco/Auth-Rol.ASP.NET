@@ -1,6 +1,8 @@
 ﻿using Auth_Rol.ASP.NET.Filter.Attributes;
 using Auth_Rol.ASP.NET.Users.Enums;
 using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Auth_Rol.ASP.NET.Users.Model
 {
@@ -27,10 +29,12 @@ namespace Auth_Rol.ASP.NET.Users.Model
 
         [SwaggerSchema("User  Email")]
         [SwaggerSchemaExample("darmarz@gmail.com")]
+        [EmailAddress]
         public required string Email { get; set; }
 
         [SwaggerSchema("User Password")]
         [SwaggerSchemaExample("prometheus98")]
+        [JsonIgnore]
         public required string Password { get; set; }
 
         [SwaggerSchema("User Rol")]
@@ -39,5 +43,8 @@ namespace Auth_Rol.ASP.NET.Users.Model
 
         [SwaggerIgnore]
         public string? RefreshToken { get; set; }
+
+        [SwaggerIgnore]
+        public ICollection<UsersProjectModel> ProjectsIncludes { get; set; } = new List<UsersProjectModel>();
     }
 }

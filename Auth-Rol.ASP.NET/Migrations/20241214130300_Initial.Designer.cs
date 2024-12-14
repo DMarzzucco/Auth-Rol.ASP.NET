@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241213220806_Initial")]
+    [Migration("20241214130300_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -23,6 +23,27 @@ namespace Auth_Rol.ASP.NET.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Auth_Rol.ASP.NET.Project.Model.ProjectModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects", (string)null);
+                });
 
             modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersModel", b =>
                 {
@@ -75,6 +96,63 @@ namespace Auth_Rol.ASP.NET.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersProjectModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccesLevel")
+                        .IsRequired()
+                        .IsUnicode(false)
+                        .HasColumnType("text");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UsersProject", (string)null);
+                });
+
+            modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersProjectModel", b =>
+                {
+                    b.HasOne("Auth_Rol.ASP.NET.Project.Model.ProjectModel", "Project")
+                        .WithMany("UsersIncludes")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Auth_Rol.ASP.NET.Users.Model.UsersModel", "User")
+                        .WithMany("ProjectsIncludes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Auth_Rol.ASP.NET.Project.Model.ProjectModel", b =>
+                {
+                    b.Navigation("UsersIncludes");
+                });
+
+            modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersModel", b =>
+                {
+                    b.Navigation("ProjectsIncludes");
                 });
 #pragma warning restore 612, 618
         }
