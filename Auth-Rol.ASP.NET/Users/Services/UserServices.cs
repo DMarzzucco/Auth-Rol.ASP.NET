@@ -13,11 +13,13 @@ namespace Auth_Rol.ASP.NET.Users.Services
 
         private readonly IMapper _mapper;
         private readonly IUserRepository _repository;
+        private readonly IUserProjectRepository _userProjectRepository;
 
-        public UserServices(IUserRepository repository, IMapper mapper)
+        public UserServices(IUserRepository repository, IMapper mapper, IUserProjectRepository userProjectRepository)
         {
             this._mapper = mapper;
             this._repository = repository;
+            this._userProjectRepository = userProjectRepository;
         }
 
         public async Task<UsersModel> CreateUser(CreateUserDTO body)
@@ -89,6 +91,14 @@ namespace Auth_Rol.ASP.NET.Users.Services
 
             await this._repository.UpdateAsync(user);
             return user;
+        }
+
+        public async Task<UsersProjectModel> relationProject(UsersProjectDTO body)
+        {
+            var data = this._mapper.Map<UsersProjectModel>(body);
+            await this._userProjectRepository.AddChangeAsync(data);
+
+            return data;
         }
     }
 }

@@ -8,8 +8,14 @@ namespace Auth_Rol.ASP.NET.Mapper
     {
         public MappingProfile()
         {
+            //Create new user
             CreateMap<CreateUserDTO, UsersModel>();
+
+            //Update new User
             CreateMap<UpdateUserDTO, UsersModel>();
+
+            //Realtionation between User and Project
+            CreateMap<UsersProjectDTO, UsersProjectModel>();
         }
     }
 }

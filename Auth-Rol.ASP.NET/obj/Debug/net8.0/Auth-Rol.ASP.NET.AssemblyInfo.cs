@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Auth-Rol.ASP.NET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a94ee2913d43aebded5482036d84708b832bb1e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4b2d901de72f57671fd3b73f61fce59250236ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("Auth-Rol.ASP.NET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Auth-Rol.ASP.NET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

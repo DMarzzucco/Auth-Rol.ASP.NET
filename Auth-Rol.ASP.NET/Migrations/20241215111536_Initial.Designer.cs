@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241214130300_Initial")]
+    [Migration("20241215111536_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

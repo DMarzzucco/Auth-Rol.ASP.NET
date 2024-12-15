@@ -22,6 +22,18 @@
             </summary>
             <returns>A Log Out Successfully </returns>
         </member>
+        <member name="T:Auth_Rol.ASP.NET.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.RegisterUser(Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO)">
             <summary>
             Register a new User
