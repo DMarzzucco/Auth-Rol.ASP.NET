@@ -18,5 +18,7 @@ namespace Auth_Rol.ASP.NET.Users.Services.Interface
         Task<UsersModel> FindByAuth(string key, object value);
 
         Task<UsersModel> updateToken(int id, string RefreshToken);
+
+        Task<UsersProjectModel> relationProject(UsersProjectDTO body);
     }
 }

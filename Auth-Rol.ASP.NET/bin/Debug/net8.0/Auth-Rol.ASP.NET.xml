@@ -74,5 +74,11 @@
             <response code = "204">No Content</response>
             <response code = "404">User not found</response>
         </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserProjectController.RegisterUserAndProject(Auth_Rol.ASP.NET.Users.DTO.UsersProjectDTO)">
+            <summary>
+            Relation Project
+            </summary>
+            <returns>Relation User and Project with a access level</returns>
+        </member>
     </members>
 </doc>

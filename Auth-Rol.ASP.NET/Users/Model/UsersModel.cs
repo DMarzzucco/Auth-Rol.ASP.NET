@@ -34,7 +34,6 @@ namespace Auth_Rol.ASP.NET.Users.Model
 
         [SwaggerSchema("User Password")]
         [SwaggerSchemaExample("prometheus98")]
-        [JsonIgnore]
         public required string Password { get; set; }
 
         [SwaggerSchema("User Rol")]

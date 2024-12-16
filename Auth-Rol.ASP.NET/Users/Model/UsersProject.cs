@@ -17,13 +17,15 @@ namespace Auth_Rol.ASP.NET.Users.Model
         [SwaggerIgnore]
         public int UserId { get; set; }
 
-        [SwaggerIgnore]
+        [SwaggerSchema("User")]
+        [SwaggerSchemaExample("User")]
         public required UsersModel User { get; set; }
 
         [SwaggerIgnore]
         public int ProjectId { get; set; }
 
-        [SwaggerIgnore]
+        [SwaggerSchema("Project")]
+        [SwaggerSchemaExample("Project")]
         public required ProjectModel Project { get; set; }
     }
 }

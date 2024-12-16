@@ -56,13 +56,13 @@ namespace Auth_Rol.ASP.NET.Users.Repository
 
         public async Task AddChangeAsync(UsersModel data)
         {
-            this._context.Add(data);
+            this._context.UserModel.Add(data);
             await this._context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(UsersModel data)
         {
-            this._context.Entry(data).State = EntityState.Modified;
+            this._context.UserModel.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
         }
 

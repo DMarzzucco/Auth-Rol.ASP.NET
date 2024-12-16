@@ -12,10 +12,10 @@ namespace Auth_Rol.ASP.NET.Users.DTO
         [SwaggerSchemaExample("OWNER")]
         public required AccesLevel AccessLevel { get; set; }
 
-        [SwaggerSchema("User id ")]
+        [SwaggerSchema("User")]
         public required UsersModel User { get; set; }
 
-        [SwaggerSchema("User id")]
+        [SwaggerSchema("Project")]
         public required ProjectModel Project { get; set; }
     }
 }

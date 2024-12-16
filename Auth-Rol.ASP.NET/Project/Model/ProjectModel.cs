@@ -17,7 +17,8 @@ namespace Auth_Rol.ASP.NET.Project.Model
         [SwaggerSchemaExample("Next year's projects include basic tasks for beginners, as well as a review of errors made the previous year.")]
         public required string Description { get; set; }
 
-        [SwaggerIgnore]
+        [SwaggerSchema("List<UsersProjectModel>")]
+        [SwaggerSchemaExample("List<UsersProjectModel>")]
         public ICollection<UsersProjectModel> UsersIncludes { get; set; } = new List<UsersProjectModel>();
     }
 }

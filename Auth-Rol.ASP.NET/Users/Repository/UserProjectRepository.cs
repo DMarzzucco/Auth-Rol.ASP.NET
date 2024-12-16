@@ -14,7 +14,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
 
         public async Task AddChangeAsync(UsersProjectModel body)
         {
-            this._context.Add(body);
+            this._context.UsersProject.Add(body);
             await this._context.SaveChangesAsync();
         }
     }

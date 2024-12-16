@@ -1,45 +1,22 @@
 
-using Auth_Rol.ASP.NET.Context;
 using Auth_Rol.ASP.NET.Filter;
-using Auth_Rol.ASP.NET.Mapper;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using System.Reflection;
-using Auth_Rol.ASP.NET.Users.Services.Interface;
-using Auth_Rol.ASP.NET.Users.Services;
-using Auth_Rol.ASP.NET.Users.Repository.Interface;
-using Auth_Rol.ASP.NET.Users.Repository;
-using Microsoft.OpenApi.Models;
-using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
-using Auth_Rol.ASP.NET.Auth.Services;
-using Auth_Rol.ASP.NET.Auth.Filter;
+
+using Auth_Rol.ASP.NET.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Build StringConection
-var connectionString = builder.Configuration.GetConnectionString("Connection");
-
-//Register Server
-builder.Services.AddDbContext<AppDbContext>(op => op.UseNpgsql(connectionString));
+//DatabaseConfiguration
+builder.Services.AddDatabaseConfiguration(builder.Configuration);
 
 //Add httpContext
 builder.Services.AddHttpContextAccessor();
 
 //Cors Policy
-builder.Services.AddCors(o =>
-{
-    o.AddPolicy("CorsPolicy", b =>
-    {
-        b.WithOrigins("http://localhost:300.com")
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowCredentials();
-    });
-});
+builder.Services.AddCorsPolicy();
 
 //JwtBuilderConfigure
 builder.Configuration.AddJsonFile("appsettings.json");
@@ -73,45 +50,15 @@ builder.Services.AddControllers(op =>
     op.Filters.Add<GlobalFilterExceptions>();
 });
 // Register Services
-
-//GlobalFilterException
-builder.Services.AddScoped<GlobalFilterExceptions>();
-//RolesAuth
-builder.Services.AddScoped<RolesAuthentication>();
-//JwtAuth
-builder.Services.AddScoped<JwtAuthFilter>();
-//AuthSerives
-builder.Services.AddScoped<LocalAuthFilter>();
-builder.Services.AddScoped<IAuthServices, AuthServices>();
-//UserServices
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserServices>();
+builder.Services.AddCustomServices();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(op =>
-{
-    op.EnableAnnotations();
-    op.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Version = "v1",
-        Title = "Auth Rols",
-        Description = "An ASP.NET Core Web Apit Auth Controller"
-    });
-    op.SchemaFilter<SwaggerSchemaExampleFilter>();
-
-    var xmLFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    op.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmLFileName));
-});
+builder.Services.AddSwaggerConfiguration();
 
 //Mapper
-var mappConfig = new MapperConfiguration(m =>
-{
-    m.AddProfile<MappingProfile>();
-});
-IMapper mapper = mappConfig.CreateMapper();
+builder.Services.AddMapperConfig();
 
-builder.Services.AddSingleton(mapper);
 builder.Services.AddMvc();
 
 //Por Listen
