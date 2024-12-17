@@ -34,6 +34,24 @@
         <member name="M:Auth_Rol.ASP.NET.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Controller.ProjectController.CreateProject(Auth_Rol.ASP.NET.Project.DTO.CreateProjectDTO)">
+            <summary>
+            Create a Project
+            </summary>
+            <returns>Give a new Project</returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Controller.ProjectController.GetAllProject">
+            <summary>
+            Get All Project
+            </summary>
+            <returns>List of Project</returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Controller.ProjectController.DeleteProject(System.Int32)">
+            <summary>
+            Delete Project
+            </summary>
+            <returns>No content</returns>
+        </member>
         <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.RegisterUser(Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO)">
             <summary>
             Register a new User
