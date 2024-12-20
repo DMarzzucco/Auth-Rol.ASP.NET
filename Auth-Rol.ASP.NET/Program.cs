@@ -9,7 +9,6 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddCorsPolicy();
 //JwtBuilderConfigure
 builder.Configuration.AddJsonFile("appsettings.json");
-
 builder.Services.AddJwtAuthentication(builder.Configuration);
 //Register Filter
 builder.Services.AddCustomController();
