@@ -1,86 +1,189 @@
-﻿using Auth_Rol.ASP.NET.Context;
+﻿using Auth_Rol.ASP.NET.Cache.Infrastucture.Interface;
+using Auth_Rol.ASP.NET.Context;
+using Auth_Rol.ASP.NET.Project.Model;
+using Auth_Rol.ASP.NET.UserProject.Model;
 using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
-using System.Linq.Expressions;
 
 namespace Auth_Rol.ASP.NET.Users.Repository
 {
 
     public class UserRepository : IUserRepository
     {
-
+        private readonly IRedisService _redis;
         private readonly AppDbContext _context;
 
-        public UserRepository(AppDbContext context)
+        public UserRepository(AppDbContext context, IRedisService redis)
         {
             this._context = context;
+            this._redis = redis;
         }
 
-        public async Task SaveChangeAsync()
-        {
-            await this._context.SaveChangesAsync();
-        }
-
+        /// <summary>
+        /// FindByIdAsync 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
-            return await this._context.UserModel.FindAsync(id);
-        }
 
+            string cacheKey = $"UserModel:{id}";
+            var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
+            if (user != null) return user;
+
+            user = await this._context.UserModel
+                .AsNoTracking()
+                .Include(u => u.ProjectsIncludes)
+                .ThenInclude(pi => pi.Project)
+                .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null) return null;
+            user.ProjectsIncludes ??= new List<UsersProjectModel>();
+
+            foreach (var project in user.ProjectsIncludes)
+            {
+                _context.Entry(project.Project).Collection(p => p.UsersIncludes).Load();
+            }
+
+            await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
+            //
+            return user;
+        }
+        /// <summary>
+        /// To list async
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<UsersModel>> ToListAsync()
         {
-            return await this._context.UserModel.ToListAsync();
-        }
+            string cacheKey = "UserModel:List";
+            var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
 
+            if (user != null) return user;
+
+            user = await this._context.UserModel.Select(u => new UsersModel
+            {
+                Id = u.Id,
+                First_name = u.First_name,
+                Last_name = u.Last_name,
+                Age = u.Age,
+                Username = u.Username,
+                Email = u.Email,
+                Password = u.Password,
+                Roles = u.Roles,
+                RefreshToken = u.RefreshToken,
+                ProjectsIncludes = new List<UsersProjectModel>()
+            }).ToListAsync();
+            await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
+            //
+            return user;
+        }
+        /// <summary>
+        /// Exist Email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public bool ExistsByEmail(string email)
         {
             return this._context.UserModel.Any(u => u.Email == email);
         }
-
+        /// <summary>
+        /// Exists Username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public bool ExistsByUsername(string username)
         {
             return this._context.UserModel.Any(u => u.Username == username);
         }
-
-        public async Task<UsersModel?> FindAsync()
+        /// <summary>
+        /// Remove user
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public async Task<bool> RemoveAsync(UsersModel date)
         {
-            return await this._context.UserModel.FindAsync();
-        }
+            var existingEntity = _context.ChangeTracker.Entries<ProjectModel>()
+  .FirstOrDefault(e => e.Entity.Id == date.Id);
 
-        public async Task RemoveAsync(UsersModel user)
-        {
+            if (existingEntity != null)
+            {
+                _context.Entry(existingEntity.Entity).State = EntityState.Detached;
+            }
+            // actions
+            var user = await this._context.UserModel
+                .AsNoTracking()
+                .Include(p => p.ProjectsIncludes)
+                .ThenInclude(up => up.Project)
+                .FirstOrDefaultAsync(p => p.Id == date.Id);
+
+            if (user == null) return false;
+
             this._context.UserModel.Remove(user);
             await this._context.SaveChangesAsync();
+            //
+            var redisId = $"UserModel:{date.Id}";
+            var redisList = "UserModel:List";
+            await this._redis.DeleteFromCacheAsync(redisId, redisList);
+            //
+            return true;
         }
-
+        /// <summary>
+        /// Save User register
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public async Task AddChangeAsync(UsersModel data)
         {
             this._context.UserModel.Add(data);
             await this._context.SaveChangesAsync();
         }
-
-        public async Task UpdateAsync(UsersModel data)
+        /// <summary>
+        /// Update user
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public async Task<bool> UpdateAsync(UsersModel data)
         {
+            var existingEntites = this._context.ChangeTracker
+                .Entries<ProjectModel>()
+                .FirstOrDefault(e => e.Entity.Id == data.Id);
+
+            if (existingEntites != null)
+            {
+                this._context.Entry(existingEntites.Entity).State = EntityState.Detached;
+            }
+            // edti user
+            var user = await this._context.UserModel
+                .AsNoTracking()
+                .Include(u => u.ProjectsIncludes)
+                .ThenInclude(u => u.Project)
+                .FirstOrDefaultAsync(u => u.Id == data.Id);
+
+            if (user == null) return false;
+
+            this._context.Entry(user).State = EntityState.Detached;
             this._context.UserModel.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
+            //
+            var redisId = $"UserModel:{data.Id}";
+            var redisList = "UserModel:List";
+            await this._redis.DeleteFromCacheAsync(redisId, redisList);
+            //
+            return true;
         }
-
+        /// <summary>
+        /// FindByKey
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public async Task<UsersModel?> FindByKey(string key, object value)
         {
             var user = await this._context.UserModel
                 .AsQueryable()
                 .Where(u => EF.Property<object>(u, key).Equals(value))
                 .SingleOrDefaultAsync();
-            //var parameter = Expression.Parameter(typeof(UsersModel), "user");
-            //var property = Expression.Property(parameter, key);
-            //var constant = Expression.Constant(value);
-            //var equality = Expression.Equal(property, constant);
-            //var predicate = Expression.Lambda<Func<UsersModel, bool>>(equality, parameter);
-
-            //return await _context.UserModel
-            //    .Where(predicate)
-            //    .SingleOrDefaultAsync();
             return user;
         }
     }

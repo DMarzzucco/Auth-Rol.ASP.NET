@@ -1,7 +1,7 @@
 ﻿using Auth_Rol.ASP.NET.Project.DTO;
 using Auth_Rol.ASP.NET.Project.Model;
 using Auth_Rol.ASP.NET.Project.Service.Interface;
-using Auth_Rol.ASP.NET.Users.Model;
+using Auth_Rol.ASP.NET.UserProject.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Auth_Rol.ASP.NET.Project.Controller
@@ -60,6 +60,7 @@ namespace Auth_Rol.ASP.NET.Project.Controller
         /// Update a project
         /// </summary>
         /// <param name="id">ID</param>
+        /// <param name="body">Body</param>
         /// <returns>No content</returns>
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

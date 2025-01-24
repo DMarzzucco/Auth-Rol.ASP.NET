@@ -27,7 +27,7 @@ namespace Auth_Rol.ASP.NET.Auth.Controller
         [ServiceFilter(typeof(LocalAuthFilter))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [HttpPost]
+        [HttpPost ("login")]
         public async Task<ActionResult> Login([FromBody] AuthDTO body)
         {
             var user = HttpContext.Items["User"] as UsersModel;

@@ -46,11 +46,66 @@
             </summary>
             <returns>List of Project</returns>
         </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Controller.ProjectController.GetAProjectById(System.Int32)">
+            <summary>
+            Get a Project
+            </summary>
+            <param name="id">Id</param>
+            <returns>Return a Project</returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Controller.ProjectController.UpdateProject(System.Int32,Auth_Rol.ASP.NET.Project.DTO.UpdateProjectDTO)">
+            <summary>
+            Update a project
+            </summary>
+            <param name="id">ID</param>
+            <param name="body">Body</param>
+            <returns>No content</returns>
+        </member>
         <member name="M:Auth_Rol.ASP.NET.Project.Controller.ProjectController.DeleteProject(System.Int32)">
             <summary>
             Delete Project
             </summary>
             <returns>No content</returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Repository.ProjectRepository.FinByIdAsync(System.Int32)">
+            <summary>
+            Fin by id 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Repository.ProjectRepository.RemoveAsync(Auth_Rol.ASP.NET.Project.Model.ProjectModel)">
+            <summary>
+            Remove async
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Repository.ProjectRepository.SaveProjectAsync(Auth_Rol.ASP.NET.Project.Model.ProjectModel)">
+            <summary>
+            Save project
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Repository.ProjectRepository.ToListAsync">
+            <summary>
+            To list async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Project.Repository.ProjectRepository.UpdateAsync(Auth_Rol.ASP.NET.Project.Model.ProjectModel)">
+            <summary>
+            Update project
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.UserProject.Controller.UserProjectController.RegisterUserAndProject(Auth_Rol.ASP.NET.UserProject.DTOs.UsersProjectDTO)">
+            <summary>
+            Relation Project
+            </summary>
+            <returns>Relation User and Project with a access level</returns>
         </member>
         <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.RegisterUser(Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO)">
             <summary>
@@ -92,11 +147,61 @@
             <response code = "204">No Content</response>
             <response code = "404">User not found</response>
         </member>
-        <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserProjectController.RegisterUserAndProject(Auth_Rol.ASP.NET.Users.DTO.UsersProjectDTO)">
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.FindByIdAsync(System.Int32)">
             <summary>
-            Relation Project
+            FindByIdAsync 
             </summary>
-            <returns>Relation User and Project with a access level</returns>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.ToListAsync">
+            <summary>
+            To list async
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.ExistsByEmail(System.String)">
+            <summary>
+            Exist Email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.ExistsByUsername(System.String)">
+            <summary>
+            Exists Username
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.RemoveAsync(Auth_Rol.ASP.NET.Users.Model.UsersModel)">
+            <summary>
+            Remove user
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.AddChangeAsync(Auth_Rol.ASP.NET.Users.Model.UsersModel)">
+            <summary>
+            Save User register
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.UpdateAsync(Auth_Rol.ASP.NET.Users.Model.UsersModel)">
+            <summary>
+            Update user
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Users.Repository.UserRepository.FindByKey(System.String,System.Object)">
+            <summary>
+            FindByKey
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

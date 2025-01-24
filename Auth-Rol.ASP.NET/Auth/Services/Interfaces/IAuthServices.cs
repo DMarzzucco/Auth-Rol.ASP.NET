@@ -9,7 +9,7 @@ namespace Auth_Rol.ASP.NET.Auth.Services.Interfaces
 
         Task<string> GenerateToken(UsersModel body);
 
-        Task<UsersModel> GetUserProfile();
+        Task<UsersModel> GetProfileByCookie();
 
         Task<string> GetProfile();
 

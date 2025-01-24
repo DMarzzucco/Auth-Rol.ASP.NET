@@ -1,8 +1,8 @@
-﻿using Auth_Rol.ASP.NET.Filter.Attributes;
+﻿using Auth_Rol.ASP.NET.Configuration.Swagger.Attributes;
+using Auth_Rol.ASP.NET.UserProject.Model;
 using Auth_Rol.ASP.NET.Users.Enums;
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace Auth_Rol.ASP.NET.Users.Model
 {

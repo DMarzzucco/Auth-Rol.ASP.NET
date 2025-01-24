@@ -1,8 +1,11 @@
-﻿using Auth_Rol.ASP.NET.Exceptions;
+﻿using Auth_Rol.ASP.NET.UserProject.DTOs;
+using Auth_Rol.ASP.NET.UserProject.Model;
+using Auth_Rol.ASP.NET.UserProject.Repository.Interface;
 using Auth_Rol.ASP.NET.Users.DTO;
 using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
 using Auth_Rol.ASP.NET.Users.Services.Interface;
+using Auth_Rol.ASP.NET.Utils.Exceptions;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 
@@ -51,8 +54,7 @@ namespace Auth_Rol.ASP.NET.Users.Services
 
         public async Task<UsersModel> UpdateUser(int id, UpdateUserDTO user)
         {
-            var data = await this._repository.FindByIdAsync(id);
-            if (data == null) throw new KeyNotFoundException("User not found");
+            var data = await GetById(id);
 
             this._mapper.Map(user, data);
 
@@ -66,9 +68,7 @@ namespace Auth_Rol.ASP.NET.Users.Services
 
         public async Task DeleteUser(int id)
         {
-            var data = await this._repository.FindByIdAsync(id);
-            if (data == null) throw new KeyNotFoundException("User not found");
-
+            var data = await GetById(id);
             await this._repository.RemoveAsync(data);
         }
 
@@ -84,11 +84,8 @@ namespace Auth_Rol.ASP.NET.Users.Services
         //Refresh Token Update
         public async Task<UsersModel> updateToken(int id, string RefreshToken)
         {
-            var user = await this._repository.FindByIdAsync(id);
-            if (user == null) throw new UnauthorizedAccessException("Invalid Id Provider");
-
+            var user = await GetById(id);
             user.RefreshToken = RefreshToken;
-
             await this._repository.UpdateAsync(user);
             return user;
         }

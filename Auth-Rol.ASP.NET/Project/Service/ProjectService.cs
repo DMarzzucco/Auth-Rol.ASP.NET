@@ -1,12 +1,13 @@
-﻿using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
+﻿
+using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
 using Auth_Rol.ASP.NET.Project.DTO;
 using Auth_Rol.ASP.NET.Project.Model;
 using Auth_Rol.ASP.NET.Project.Repository.Interface;
 using Auth_Rol.ASP.NET.Project.Service.Interface;
-using Auth_Rol.ASP.NET.Users.DTO;
-using Auth_Rol.ASP.NET.Users.Enums;
-using Auth_Rol.ASP.NET.Users.Model;
-using Auth_Rol.ASP.NET.Users.Repository.Interface;
+using Auth_Rol.ASP.NET.UserProject.DTOs;
+using Auth_Rol.ASP.NET.UserProject.Enum;
+using Auth_Rol.ASP.NET.UserProject.Model;
+using Auth_Rol.ASP.NET.UserProject.Repository.Interface;
 using AutoMapper;
 
 namespace Auth_Rol.ASP.NET.Project.Service
@@ -27,7 +28,7 @@ namespace Auth_Rol.ASP.NET.Project.Service
         }
         public async Task<UsersProjectModel> saveProject(CreateProjectDTO body)
         {
-            var user = await this._authService.GetUserProfile();
+            var user = await this._authService.GetProfileByCookie();
 
             var project = this._mapper.Map<ProjectModel>(body);
             await this._repository.SaveProjectAsync(project);
@@ -46,9 +47,7 @@ namespace Auth_Rol.ASP.NET.Project.Service
 
         public async Task delteProject(int id)
         {
-            var project = await this._repository.FinByIdAsync(id);
-            if (project == null) throw new KeyNotFoundException("project not found");
-
+            var project = await getProjectById(id);
             await this._repository.RemoveAsync(project);
         }
 
@@ -67,8 +66,7 @@ namespace Auth_Rol.ASP.NET.Project.Service
 
         public async Task<ProjectModel> updateProject(int id, UpdateProjectDTO body)
         {
-            var data = await this._repository.FinByIdAsync(id);
-            if (data == null) throw new KeyNotFoundException("Project not found");
+            var data = await getProjectById(id);
 
             this._mapper.Map(body, data);
 

@@ -1,25 +1,9 @@
-using Auth_Rol.ASP.NET.Configuration;
+using Auth_Rol.ASP.NET.Configuration.DbConfiguration.Extensions;
+using Auth_Rol.ASP.NET.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-//DatabaseConfiguration
-builder.Services.AddDatabaseConfiguration(builder.Configuration);
-//Add httpContext
-builder.Services.AddHttpContextAccessor();
-//Cors Policy
-builder.Services.AddCorsPolicy();
-//JwtBuilderConfigure
+builder.Services.AddServicesBuilder(builder.Configuration);
 builder.Configuration.AddJsonFile("appsettings.json");
-builder.Services.AddJwtAuthentication(builder.Configuration);
-//Register Filter
-builder.Services.AddCustomController();
-// Register Services
-builder.Services.AddCustomServices();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerConfiguration();
-//Mapper
-builder.Services.AddMapperConfig();
-builder.Services.AddMvc();
 //Por Listen
 builder.WebHost.UseUrls("http://*:5024");
 // app config
@@ -31,10 +15,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseCors("CorsPolicy");
-app.UseAuthentication();
-app.UseAuthorization();
+app.UserApplicationBuilderExtension();
+app.ApplyMigration();
 app.MapControllers();
 app.Run();

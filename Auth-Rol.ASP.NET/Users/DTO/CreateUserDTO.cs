@@ -1,4 +1,4 @@
-﻿using Auth_Rol.ASP.NET.Filter.Attributes;
+﻿using Auth_Rol.ASP.NET.Configuration.Swagger.Attributes;
 using Auth_Rol.ASP.NET.Users.Enums;
 using Swashbuckle.AspNetCore.Annotations;
 

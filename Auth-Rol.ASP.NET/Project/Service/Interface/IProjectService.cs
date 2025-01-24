@@ -1,12 +1,11 @@
 ﻿using Auth_Rol.ASP.NET.Project.DTO;
 using Auth_Rol.ASP.NET.Project.Model;
-using Auth_Rol.ASP.NET.Users.Model;
+using Auth_Rol.ASP.NET.UserProject.Model;
 
 namespace Auth_Rol.ASP.NET.Project.Service.Interface
 {
     public interface IProjectService
     {
-
         Task<UsersProjectModel> saveProject(CreateProjectDTO body);
 
         Task<IEnumerable<ProjectModel>> getAllProject();

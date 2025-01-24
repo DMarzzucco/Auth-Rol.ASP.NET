@@ -1,5 +1,5 @@
-﻿using Swashbuckle.AspNetCore.Annotations;
-using Auth_Rol.ASP.NET.Filter.Attributes;
+﻿using Auth_Rol.ASP.NET.Configuration.Swagger.Attributes;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Auth_Rol.ASP.NET.Auth.DTO
 {

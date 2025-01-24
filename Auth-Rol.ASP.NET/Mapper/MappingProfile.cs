@@ -1,5 +1,7 @@
 ﻿using Auth_Rol.ASP.NET.Project.DTO;
 using Auth_Rol.ASP.NET.Project.Model;
+using Auth_Rol.ASP.NET.UserProject.DTOs;
+using Auth_Rol.ASP.NET.UserProject.Model;
 using Auth_Rol.ASP.NET.Users.DTO;
 using Auth_Rol.ASP.NET.Users.Model;
 using AutoMapper;

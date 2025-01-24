@@ -2,7 +2,7 @@
   {
     "ContainingType": "Auth_Rol.ASP.NET.Auth.Controller.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -100,7 +100,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Auth_Rol.ASP.NET.Users.Model.UsersProjectModel",
+        "Type": "Auth_Rol.ASP.NET.UserProject.Model.UsersProjectModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -150,6 +150,42 @@
   },
   {
     "ContainingType": "Auth_Rol.ASP.NET.Project.Controller.ProjectController",
+    "Method": "UpdateProject",
+    "RelativePath": "api/Project",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "body",
+        "Type": "Auth_Rol.ASP.NET.Project.DTO.UpdateProjectDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "Auth_Rol.ASP.NET.Project.Controller.ProjectController",
     "Method": "DeleteProject",
     "RelativePath": "api/Project",
     "HttpMethod": "DELETE",
@@ -180,28 +216,28 @@
     ]
   },
   {
-    "ContainingType": "Auth_Rol.ASP.NET.Users.Controllers.UserController",
-    "Method": "RegisterUser",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
+    "ContainingType": "Auth_Rol.ASP.NET.Project.Controller.ProjectController",
+    "Method": "GetAProjectById",
+    "RelativePath": "api/Project/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "Auth_Rol.ASP.NET.Users.Model.UsersModel",
+        "Type": "Auth_Rol.ASP.NET.Project.Model.ProjectModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
-        "StatusCode": 201
+        "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -210,7 +246,7 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 409
+        "StatusCode": 404
       }
     ]
   },
@@ -346,7 +382,42 @@
     ]
   },
   {
-    "ContainingType": "Auth_Rol.ASP.NET.Users.Controllers.UserProjectController",
+    "ContainingType": "Auth_Rol.ASP.NET.Users.Controllers.UserController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Auth_Rol.ASP.NET.Users.Model.UsersModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
+      }
+    ]
+  },
+  {
+    "ContainingType": "Auth_Rol.ASP.NET.UserProject.Controller.UserProjectController",
     "Method": "RegisterUserAndProject",
     "RelativePath": "api/UserProject",
     "HttpMethod": "POST",
@@ -355,7 +426,7 @@
     "Parameters": [
       {
         "Name": "body",
-        "Type": "Auth_Rol.ASP.NET.Users.DTO.UsersProjectDTO",
+        "Type": "Auth_Rol.ASP.NET.UserProject.DTOs.UsersProjectDTO",
         "IsRequired": true
       }
     ],

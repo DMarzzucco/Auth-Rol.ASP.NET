@@ -1,4 +1,6 @@
-﻿using Auth_Rol.ASP.NET.Users.DTO;
+﻿using Auth_Rol.ASP.NET.UserProject.DTOs;
+using Auth_Rol.ASP.NET.UserProject.Model;
+using Auth_Rol.ASP.NET.Users.DTO;
 using Auth_Rol.ASP.NET.Users.Model;
 
 namespace Auth_Rol.ASP.NET.Users.Services.Interface

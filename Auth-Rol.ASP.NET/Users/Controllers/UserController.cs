@@ -28,7 +28,7 @@ namespace Auth_Rol.ASP.NET.Users.Controllers
         /// <response code = "201">User register successfully</response>
         /// <response code = "409">Repeat Username o Email </response>
         [AllowAnonymousAccess]
-        [HttpPost]
+        [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<UsersModel>> RegisterUser([FromBody] CreateUserDTO user)

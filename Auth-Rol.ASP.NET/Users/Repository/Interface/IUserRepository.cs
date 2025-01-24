@@ -4,7 +4,6 @@ namespace Auth_Rol.ASP.NET.Users.Repository.Interface
 {
     public interface IUserRepository
     {
-        Task SaveChangeAsync();
 
         Task<UsersModel?> FindByIdAsync(int id);
 
@@ -14,13 +13,11 @@ namespace Auth_Rol.ASP.NET.Users.Repository.Interface
 
         bool ExistsByUsername(string username);
 
-        Task<UsersModel?> FindAsync();
-
-        Task RemoveAsync(UsersModel user);
+        Task<bool> RemoveAsync(UsersModel date);
 
         Task AddChangeAsync(UsersModel data);
 
-        Task UpdateAsync(UsersModel data);
+        Task<bool> UpdateAsync(UsersModel data);
 
         Task<UsersModel?> FindByKey(string key, object value);
     }

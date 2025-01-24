@@ -1,6 +1,5 @@
 ﻿using Auth_Rol.ASP.NET.Auth.Attributes;
 using Auth_Rol.ASP.NET.Auth.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
@@ -53,7 +52,7 @@ namespace Auth_Rol.ASP.NET.Auth.Filter
                 ClockSkew = TimeSpan.Zero
             }, out var validatedToken);
 
-            var user = await this._authServices.GetUserProfile();
+            var user = await this._authServices.GetProfileByCookie();
 
             this._httpContextAccessor.HttpContext.Items["UserId"] = user.Id;
             this._httpContextAccessor.HttpContext.Items["UserRole"] = user.Roles;
