@@ -36,12 +36,13 @@ namespace Auth_Rol.ASP.NET.Project.Service
             var relations = new UsersProjectDTO
             {
                 AccessLevel = AccesLevel.OWNER,
-                User = user,
-                Project = project
+                UserId = user.Id,
+                ProjectId = project.Id
             };
             var userProject = this._mapper.Map<UsersProjectModel>(relations);
 
             await this._userProjectRepository.AddChangeAsync(userProject);
+
             return userProject;
         }
 

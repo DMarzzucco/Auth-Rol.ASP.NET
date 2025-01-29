@@ -1,6 +1,8 @@
 ﻿using Auth_Rol.ASP.NET.Context;
+using Auth_Rol.ASP.NET.Project.Model;
 using Auth_Rol.ASP.NET.UserProject.Model;
 using Auth_Rol.ASP.NET.UserProject.Repository.Interface;
+using Auth_Rol.ASP.NET.Users.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Auth_Rol.ASP.NET.UserProject.Repository
@@ -15,47 +17,38 @@ namespace Auth_Rol.ASP.NET.UserProject.Repository
 
         public async Task<bool> AddChangeAsync(UsersProjectModel body)
         {
-            //var TrackUserA = await this._context.UserModel
-            //.Include(u => u.ProjectsIncludes)
-            //    .ThenInclude(u => u.Project)
-            //    .FirstOrDefaultAsync(u => u.Id == body.Id);
+            var user = await _context.UserModel.AsNoTracking().FirstOrDefaultAsync(u => u.Id == body.UserId);
 
-            //if (TrackUserA == null) return false;
-
-            //this._context.Entry(TrackUserA).State = EntityState.Detached;
-
-            //var TrackProject = await this._context.ProjectModel
-            //    .Include(p => p.UsersIncludes)
-            //    .ThenInclude(u => u.User)
-            //    .FirstOrDefaultAsync(u => u.Id == body.Id);
-            //if (TrackProject == null) return false;
-
-            //this._context.Entry(TrackProject).State = EntityState.Detached;
-
-            var user = await _context.UserModel
-                .AsNoTracking()
-                .Include(u => u.ProjectsIncludes)
-                .ThenInclude(up => up.Project)
-                .FirstOrDefaultAsync(u => u.Id == body.UserId);
-
-            if (user == null) return false;
-
-            var project = await _context.ProjectModel
-                .AsNoTracking()
-                .Include(p => p.UsersIncludes)
-                .ThenInclude(up => up.User)
-                .FirstOrDefaultAsync(p => p.Id == body.ProjectId);
+            var project = await _context.ProjectModel.AsNoTracking().FirstOrDefaultAsync(p => p.Id == body.ProjectId);
 
             if (user == null || project == null) return false;
 
-            // Verificar si la relación ya existe
-            if (user.ProjectsIncludes.Any(up => up.ProjectId == body.ProjectId)) return false;
+            var entityExisting = this._context.UsersProject.Local.FirstOrDefault(u => u.UserId == body.UserId && u.ProjectId == body.ProjectId);
 
-            _context.Attach(user);
-            _context.Attach(project);
+            if (entityExisting != null) return false;
+
+            var trackedUser = _context.ChangeTracker.Entries<UsersModel>()
+                .FirstOrDefault(e => e.Entity.Id == user.Id);
+
+            if (trackedUser != null)
+            {
+                _context.Entry(trackedUser.Entity).State = EntityState.Detached;
+            }
+
+            var trackedProject = _context.ChangeTracker.Entries<ProjectModel>()
+                .FirstOrDefault(e => e.Entity.Id == project.Id);
+
+            if (trackedProject != null)
+            {
+                _context.Entry(trackedProject.Entity).State = EntityState.Detached;
+            }
+            
+            this._context.Attach(user);
+            this._context.Attach(project);
 
             this._context.UsersProject.Add(body);
             await _context.SaveChangesAsync();
+
             return true;
         }
     }

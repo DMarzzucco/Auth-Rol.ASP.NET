@@ -12,6 +12,17 @@ namespace Auth_Rol.ASP.NET.Context
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.EnableSensitiveDataLogging();
+            }
+        }
+
         public DbSet<UsersModel> UserModel { get; set; }
         public DbSet<UsersProjectModel> UsersProject { get; set; }
         public DbSet<ProjectModel> ProjectModel { get; set; }
@@ -24,6 +35,7 @@ namespace Auth_Rol.ASP.NET.Context
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 #pragma warning restore CS1591
 

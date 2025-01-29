@@ -1,6 +1,5 @@
 ﻿using Auth_Rol.ASP.NET.Cache.Infrastucture.Interface;
 using Auth_Rol.ASP.NET.Context;
-using Auth_Rol.ASP.NET.Project.Model;
 using Auth_Rol.ASP.NET.UserProject.Model;
 using Auth_Rol.ASP.NET.Users.Model;
 using Auth_Rol.ASP.NET.Users.Repository.Interface;
@@ -28,25 +27,22 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
 
-            string cacheKey = $"UserModel:{id}";
-            var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
-            if (user != null) return user;
+            //string cacheKey = $"UserModel:{id}";
+            //var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
+            //if (user != null) return user;
 
-            user = await this._context.UserModel
+            var user = await this._context.UserModel
                 .AsNoTracking()
                 .Include(u => u.ProjectsIncludes)
                 .ThenInclude(pi => pi.Project)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null) return null;
+
             user.ProjectsIncludes ??= new List<UsersProjectModel>();
 
-            foreach (var project in user.ProjectsIncludes)
-            {
-                _context.Entry(project.Project).Collection(p => p.UsersIncludes).Load();
-            }
-
-            await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
+            //await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
             //
             return user;
         }
@@ -56,12 +52,12 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<IEnumerable<UsersModel>> ToListAsync()
         {
-            string cacheKey = "UserModel:List";
-            var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
+            //string cacheKey = "UserModel:List";
+            //var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
 
-            if (user != null) return user;
+            //if (user != null) return user;
 
-            user = await this._context.UserModel.Select(u => new UsersModel
+            var user = await this._context.UserModel.Select(u => new UsersModel
             {
                 Id = u.Id,
                 First_name = u.First_name,
@@ -74,7 +70,8 @@ namespace Auth_Rol.ASP.NET.Users.Repository
                 RefreshToken = u.RefreshToken,
                 ProjectsIncludes = new List<UsersProjectModel>()
             }).ToListAsync();
-            await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
+
+            //await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
             //
             return user;
         }
@@ -103,18 +100,11 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<bool> RemoveAsync(UsersModel date)
         {
-            var existingEntity = _context.ChangeTracker.Entries<ProjectModel>()
-  .FirstOrDefault(e => e.Entity.Id == date.Id);
-
-            if (existingEntity != null)
-            {
-                _context.Entry(existingEntity.Entity).State = EntityState.Detached;
-            }
             // actions
             var user = await this._context.UserModel
-                .AsNoTracking()
                 .Include(p => p.ProjectsIncludes)
                 .ThenInclude(up => up.Project)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == date.Id);
 
             if (user == null) return false;
@@ -122,9 +112,9 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             this._context.UserModel.Remove(user);
             await this._context.SaveChangesAsync();
             //
-            var redisId = $"UserModel:{date.Id}";
-            var redisList = "UserModel:List";
-            await this._redis.DeleteFromCacheAsync(redisId, redisList);
+            //var redisId = $"UserModel:{date.Id}";
+            //var redisList = "UserModel:List";
+            //await this._redis.DeleteFromCacheAsync(redisId, redisList);
             //
             return true;
         }
@@ -145,30 +135,24 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<bool> UpdateAsync(UsersModel data)
         {
-            var existingEntites = this._context.ChangeTracker
-                .Entries<ProjectModel>()
-                .FirstOrDefault(e => e.Entity.Id == data.Id);
-
-            if (existingEntites != null)
-            {
-                this._context.Entry(existingEntites.Entity).State = EntityState.Detached;
-            }
             // edti user
-            var user = await this._context.UserModel
-                .AsNoTracking()
-                .Include(u => u.ProjectsIncludes)
-                .ThenInclude(u => u.Project)
-                .FirstOrDefaultAsync(u => u.Id == data.Id);
+            var user = await this._context.UserModel.FirstOrDefaultAsync(u => u.Id == data.Id);
 
             if (user == null) return false;
 
-            this._context.Entry(user).State = EntityState.Detached;
+            var existingUser = this._context.UserModel.Local.FirstOrDefault(u => u.Id == data.Id);
+
+            if (existingUser != null)
+                this._context.Entry(existingUser).State = EntityState.Detached;
+
+            this._context.Attach(data);            
+
             this._context.UserModel.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
             //
-            var redisId = $"UserModel:{data.Id}";
-            var redisList = "UserModel:List";
-            await this._redis.DeleteFromCacheAsync(redisId, redisList);
+            //var redisId = $"UserModel:{data.Id}";
+            //var redisList = "UserModel:List";
+            //await this._redis.DeleteFromCacheAsync(redisId, redisList);
             //
             return true;
         }

@@ -23,7 +23,6 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
         public async Task<T?> GetFromCacheAsync<T>(string key)
         {
             var data = await this._redis.StringGetAsync(key);
-
             if (string.IsNullOrEmpty(data)) return default;
             return JsonSerializer.Deserialize<T>(data, JsonSerializerHelper.Default);
         }

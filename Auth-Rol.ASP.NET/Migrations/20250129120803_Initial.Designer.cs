@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auth_Rol.ASP.NET.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250113154252_Initial")]
+    [Migration("20250129120803_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -43,6 +43,34 @@ namespace Auth_Rol.ASP.NET.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Projects", (string)null);
+                });
+
+            modelBuilder.Entity("Auth_Rol.ASP.NET.UserProject.Model.UsersProjectModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccesLevel")
+                        .IsRequired()
+                        .IsUnicode(false)
+                        .HasColumnType("text");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UsersProject", (string)null);
                 });
 
             modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersModel", b =>
@@ -98,35 +126,7 @@ namespace Auth_Rol.ASP.NET.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersProjectModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AccesLevel")
-                        .IsRequired()
-                        .IsUnicode(false)
-                        .HasColumnType("text");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UsersProject", (string)null);
-                });
-
-            modelBuilder.Entity("Auth_Rol.ASP.NET.Users.Model.UsersProjectModel", b =>
+            modelBuilder.Entity("Auth_Rol.ASP.NET.UserProject.Model.UsersProjectModel", b =>
                 {
                     b.HasOne("Auth_Rol.ASP.NET.Project.Model.ProjectModel", "Project")
                         .WithMany("UsersIncludes")

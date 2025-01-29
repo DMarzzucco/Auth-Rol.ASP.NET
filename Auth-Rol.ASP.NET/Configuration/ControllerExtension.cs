@@ -15,7 +15,7 @@ namespace Auth_Rol.ASP.NET.Configuration
                 op.JsonSerializerOptions.PropertyNamingPolicy = null;
                 op.JsonSerializerOptions.WriteIndented = true;
                 op.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
             });
             return service;
         }

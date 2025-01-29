@@ -1,6 +1,7 @@
 ﻿using Auth_Rol.ASP.NET.Utils.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Diagnostics;
 
 namespace Auth_Rol.ASP.NET.Utils.Filter
 {
@@ -16,6 +17,12 @@ namespace Auth_Rol.ASP.NET.Utils.Filter
         public void OnException(ExceptionContext ctx)
         {
             _logger.LogError(ctx.Exception, "Unhandled Exception occurred");
+
+            var stackTrace = new StackTrace(ctx.Exception, true);
+            var frane = stackTrace.GetFrame(0);
+            var fileName = frane?.GetFileName();
+            var numberLine = frane?.GetFileLineNumber();
+
 
             var statusCode = ctx.Exception switch
             {
@@ -38,7 +45,10 @@ namespace Auth_Rol.ASP.NET.Utils.Filter
                     _ => ctx.Exception.Message
                 },
                 Details = statusCode == 500 ?
-                ctx.Exception.InnerException?.Message : null
+                    ctx.Exception.InnerException?.Message : null,
+
+                FileName = fileName,
+                NumberLine = numberLine
             };
             ctx.Result = new ObjectResult(response)
             {
@@ -52,6 +62,9 @@ namespace Auth_Rol.ASP.NET.Utils.Filter
             public int StatusCode { get; set; }
             public required string Message { get; set; }
             public string? Details { get; set; }
+            public string? FileName { get; set; }
+            public int? NumberLine { get; set; }
+
         }
 
     }

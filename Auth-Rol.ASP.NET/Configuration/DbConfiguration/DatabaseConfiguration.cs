@@ -15,7 +15,14 @@ namespace Auth_Rol.ASP.NET.Configuration.DbConfiguration
 
                 WaitConnection.WaitForDatabaseAsync(connectionString, logger).GetAwaiter().GetResult();
             }
-            service.AddDbContext<AppDbContext>(op => op.UseNpgsql(connectionString));
+            service.AddDbContext<AppDbContext>(op =>
+            {
+                op.UseNpgsql(connectionString);
+                if (configuration.GetValue<string>("ASPNETCORE_ENVIROMENT") == "Development")
+                {
+                    op.EnableSensitiveDataLogging();
+                }
+            });
 
             return service;
         }
