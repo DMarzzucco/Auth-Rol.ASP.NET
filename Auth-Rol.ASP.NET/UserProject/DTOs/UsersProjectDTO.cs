@@ -13,11 +13,9 @@ namespace Auth_Rol.ASP.NET.UserProject.DTOs
         public required AccesLevel AccessLevel { get; set; }
 
         [SwaggerSchema("User")]
-        //public required UsersModel User { get; set; }
         public required int UserId { get; set; }
 
         [SwaggerSchema("Project")]
-        //public required ProjectModel Project { get; set; }
         public required int ProjectId { get; set; }
 
     }
