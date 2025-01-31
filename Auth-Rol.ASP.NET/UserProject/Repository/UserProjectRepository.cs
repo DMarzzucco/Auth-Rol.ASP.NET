@@ -1,8 +1,6 @@
 ﻿using Auth_Rol.ASP.NET.Context;
-using Auth_Rol.ASP.NET.Project.Model;
 using Auth_Rol.ASP.NET.UserProject.Model;
 using Auth_Rol.ASP.NET.UserProject.Repository.Interface;
-using Auth_Rol.ASP.NET.Users.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Auth_Rol.ASP.NET.UserProject.Repository
@@ -14,35 +12,24 @@ namespace Auth_Rol.ASP.NET.UserProject.Repository
         {
             _context = context;
         }
-
+        /// <summary>
+        /// AddChangeAsync 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public async Task<bool> AddChangeAsync(UsersProjectModel body)
         {
-            var user = await _context.UserModel.AsNoTracking().FirstOrDefaultAsync(u => u.Id == body.UserId);
+            var project = await this._context.ProjectModel.FindAsync(body.ProjectId);
+            var user = await this._context.UserModel.FindAsync(body.UserId);
 
-            var project = await _context.ProjectModel.AsNoTracking().FirstOrDefaultAsync(p => p.Id == body.ProjectId);
+            if (project == null || user == null)
+                return false;
 
-            if (user == null || project == null) return false;
+            var entityExisting = this._context.UsersProject.Local.FirstOrDefault(u => u.Id == body.Id);
 
-            var entityExisting = this._context.UsersProject.Local.FirstOrDefault(u => u.UserId == body.UserId && u.ProjectId == body.ProjectId);
+            if (entityExisting != null)
+                this._context.Entry(entityExisting).State = EntityState.Detached;
 
-            if (entityExisting != null) return false;
-
-            var trackedUser = _context.ChangeTracker.Entries<UsersModel>()
-                .FirstOrDefault(e => e.Entity.Id == user.Id);
-
-            if (trackedUser != null)
-            {
-                _context.Entry(trackedUser.Entity).State = EntityState.Detached;
-            }
-
-            var trackedProject = _context.ChangeTracker.Entries<ProjectModel>()
-                .FirstOrDefault(e => e.Entity.Id == project.Id);
-
-            if (trackedProject != null)
-            {
-                _context.Entry(trackedProject.Entity).State = EntityState.Detached;
-            }
-            
             this._context.Attach(user);
             this._context.Attach(project);
 

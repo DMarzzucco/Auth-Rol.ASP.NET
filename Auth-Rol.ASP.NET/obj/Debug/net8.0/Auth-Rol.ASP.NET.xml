@@ -107,6 +107,13 @@
             </summary>
             <returns>Relation User and Project with a access level</returns>
         </member>
+        <member name="M:Auth_Rol.ASP.NET.UserProject.Repository.UserProjectRepository.AddChangeAsync(Auth_Rol.ASP.NET.UserProject.Model.UsersProjectModel)">
+            <summary>
+            AddChangeAsync 
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
         <member name="M:Auth_Rol.ASP.NET.Users.Controllers.UserController.RegisterUser(Auth_Rol.ASP.NET.Users.DTO.CreateUserDTO)">
             <summary>
             Register a new User

@@ -58,8 +58,8 @@ namespace Auth_Rol.ASP.NET.Users.Services
 
             this._mapper.Map(user, data);
 
-            var passwordHasher = new PasswordHasher<UsersModel>();
-            data.Password = passwordHasher.HashPassword(data, user.Password);
+            //var passwordHasher = new PasswordHasher<UsersModel>();
+            //data.Password = passwordHasher.HashPassword(data, user.Password);
 
             await this._repository.UpdateAsync(data);
 

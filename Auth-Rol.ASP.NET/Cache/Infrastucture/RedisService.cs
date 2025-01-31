@@ -12,7 +12,9 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
         {
             this._redis = redis.GetDatabase();
         }
-
+        public async Task CleanRedis() {
+            await this._redis.ExecuteAsync("FLUSHALL");
+        }
         public async Task DeleteFromCacheAsync(params string[] keys)
         {
             foreach (var key in keys)
@@ -26,10 +28,10 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
             if (string.IsNullOrEmpty(data)) return default;
             return JsonSerializer.Deserialize<T>(data, JsonSerializerHelper.Default);
         }
-        public async Task SetToCacheAsync<T>(string key, T value, TimeSpan expiration)
+        public async Task SetToCacheAsync<T>(string key, T value)
         {
             var serializer = JsonSerializer.Serialize(value, JsonSerializerHelper.Default);
-            await this._redis.StringSetAsync(key, serializer,expiration);
+            await this._redis.StringSetAsync(key, serializer,TimeSpan.FromMinutes(10));
         }
     }
 }

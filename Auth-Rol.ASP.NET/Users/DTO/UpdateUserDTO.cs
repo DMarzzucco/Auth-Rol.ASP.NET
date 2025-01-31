@@ -26,9 +26,9 @@ namespace Auth_Rol.ASP.NET.Users.DTO
         [SwaggerSchemaExample("darmarz@gmail.com")]
         public string? Email { get; set; }
 
-        [SwaggerSchema("User Password")]
-        [SwaggerSchemaExample("prometheus98")]
-        public string? Password { get; set; }
+        //[SwaggerSchema("User Password")]
+        //[SwaggerSchemaExample("prometheus98")]
+        //public string? Password { get; set; }
 
         [SwaggerSchema("User Rol")]
         [SwaggerSchemaExample("ADMIN")]

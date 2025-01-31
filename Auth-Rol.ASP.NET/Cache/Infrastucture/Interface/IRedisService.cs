@@ -2,8 +2,9 @@
 {
     public interface IRedisService
     {
+        Task CleanRedis();
         Task<T?> GetFromCacheAsync<T>(string key);
-        Task SetToCacheAsync<T>(string key, T value, TimeSpan expiration);
+        Task SetToCacheAsync<T>(string key, T value);
         Task DeleteFromCacheAsync(params string[] keys);
     }
 }

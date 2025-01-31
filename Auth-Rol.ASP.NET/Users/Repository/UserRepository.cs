@@ -27,12 +27,11 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
 
-            //string cacheKey = $"UserModel:{id}";
-            //var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
-            //if (user != null) return user;
+            string cacheKey = $"UserModel:{id}";
+            var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
+            if (user != null) return user;
 
-            var user = await this._context.UserModel
-                .AsNoTracking()
+            user = await this._context.UserModel
                 .Include(u => u.ProjectsIncludes)
                 .ThenInclude(pi => pi.Project)
                 .AsNoTracking()
@@ -42,7 +41,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
 
             user.ProjectsIncludes ??= new List<UsersProjectModel>();
 
-            //await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
+            await this._redis.SetToCacheAsync(cacheKey, user);
             //
             return user;
         }
@@ -52,12 +51,12 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<IEnumerable<UsersModel>> ToListAsync()
         {
-            //string cacheKey = "UserModel:List";
-            //var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
+            string cacheKey = "UserModel:List";
+            var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
 
-            //if (user != null) return user;
+            if (user != null) return user;
 
-            var user = await this._context.UserModel.Select(u => new UsersModel
+            user = await this._context.UserModel.Select(u => new UsersModel
             {
                 Id = u.Id,
                 First_name = u.First_name,
@@ -71,7 +70,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
                 ProjectsIncludes = new List<UsersProjectModel>()
             }).ToListAsync();
 
-            //await this._redis.SetToCacheAsync(cacheKey, user, TimeSpan.FromMinutes(10));
+            await this._redis.SetToCacheAsync(cacheKey, user);
             //
             return user;
         }
@@ -101,21 +100,22 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         public async Task<bool> RemoveAsync(UsersModel date)
         {
             // actions
-            var user = await this._context.UserModel
-                .Include(p => p.ProjectsIncludes)
-                .ThenInclude(up => up.Project)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(p => p.Id == date.Id);
+            //var user = await this._context.UserModel
+            //    .Include(p => p.ProjectsIncludes)
+            //    .ThenInclude(up => up.Project)
+            //    .AsNoTracking()
+            //    .FirstOrDefaultAsync(p => p.Id == date.Id);
 
-            if (user == null) return false;
+            //if (user == null) return false;
 
-            this._context.UserModel.Remove(user);
+            this._context.UserModel.Remove(date);
             await this._context.SaveChangesAsync();
             //
             //var redisId = $"UserModel:{date.Id}";
             //var redisList = "UserModel:List";
             //await this._redis.DeleteFromCacheAsync(redisId, redisList);
             //
+            await this._redis.CleanRedis();
             return true;
         }
         /// <summary>
@@ -150,9 +150,12 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             this._context.UserModel.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
             //
+            //var redisKeyId = $"ProjectModel:Id";
+            //var redisProjList = "ProjectModel:List";
             //var redisId = $"UserModel:{data.Id}";
             //var redisList = "UserModel:List";
             //await this._redis.DeleteFromCacheAsync(redisId, redisList);
+            await this._redis.CleanRedis();
             //
             return true;
         }
