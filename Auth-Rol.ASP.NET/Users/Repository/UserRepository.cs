@@ -111,11 +111,10 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             this._context.UserModel.Remove(date);
             await this._context.SaveChangesAsync();
             //
-            //var redisId = $"UserModel:{date.Id}";
-            //var redisList = "UserModel:List";
-            //await this._redis.DeleteFromCacheAsync(redisId, redisList);
-            //
-            await this._redis.CleanRedis();
+            //await this._redis.CleanRedis();
+            await this._redis.InvalidateCacheByPatternAsync($"UserModel:{date.Id}*");
+            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:*");
+
             return true;
         }
         /// <summary>
@@ -150,12 +149,10 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             this._context.UserModel.Entry(data).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
             //
-            //var redisKeyId = $"ProjectModel:Id";
-            //var redisProjList = "ProjectModel:List";
-            //var redisId = $"UserModel:{data.Id}";
-            //var redisList = "UserModel:List";
+
             //await this._redis.DeleteFromCacheAsync(redisId, redisList);
-            await this._redis.CleanRedis();
+            await this._redis.InvalidateCacheByPatternAsync($"UserModel:{data.Id}*");
+            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:*");
             //
             return true;
         }

@@ -22,6 +22,50 @@
             </summary>
             <returns>A Log Out Successfully </returns>
         </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.CleanRedis">
+            <summary>
+            Clean Memory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.DeleteFromCacheAsync(System.String[])">
+            <summary>
+            Delete From Key Value
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.GetFromCacheAsync``1(System.String)">
+            <summary>
+            Get Date from Cache
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.InvalidateCacheByPatternAsync(System.String)">
+            <summary>
+            Invalida Key in cache
+            </summary>
+            <param name="pattern"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.SetScanKeyAsync(System.String)">
+            <summary>
+            Set Scan 
+            </summary>
+            <param name="pattern"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.SetToCacheAsync``1(System.String,``0)">
+            <summary>
+            Save Date in Cache Memory
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="T:Auth_Rol.ASP.NET.Migrations.Initial">
             <inheritdoc />
         </member>

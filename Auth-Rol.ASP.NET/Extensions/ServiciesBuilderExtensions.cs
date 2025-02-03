@@ -1,4 +1,5 @@
-﻿using Auth_Rol.ASP.NET.Configuration;
+﻿using Auth_Rol.ASP.NET.Cache;
+using Auth_Rol.ASP.NET.Configuration;
 using Auth_Rol.ASP.NET.Configuration.DbConfiguration;
 using Auth_Rol.ASP.NET.Configuration.Swagger;
 
@@ -10,7 +11,7 @@ namespace Auth_Rol.ASP.NET.Extensions
             //SQL Connection
             services.AddDatabaseConfiguration(configuration);
             // Redis Connection
-            services.AddSingletonExtesions();
+            services.AddRedisConnection();
             //Add httpContext
             services.AddHttpContextAccessor();
             //Cors Policy
