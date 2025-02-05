@@ -99,21 +99,11 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<bool> RemoveAsync(UsersModel date)
         {
-            // actions
-            //var user = await this._context.UserModel
-            //    .Include(p => p.ProjectsIncludes)
-            //    .ThenInclude(up => up.Project)
-            //    .AsNoTracking()
-            //    .FirstOrDefaultAsync(p => p.Id == date.Id);
-
-            //if (user == null) return false;
-
             this._context.UserModel.Remove(date);
             await this._context.SaveChangesAsync();
             //
             //await this._redis.CleanRedis();
-            await this._redis.InvalidateCacheByPatternAsync($"UserModel:{date.Id}*");
-            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:*");
+            await this._redis.InvalidPattern();
 
             return true;
         }
@@ -150,9 +140,8 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             await this._context.SaveChangesAsync();
             //
 
-            //await this._redis.DeleteFromCacheAsync(redisId, redisList);
-            await this._redis.InvalidateCacheByPatternAsync($"UserModel:{data.Id}*");
-            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:*");
+            await this._redis.InvalidPattern();
+
             //
             return true;
         }

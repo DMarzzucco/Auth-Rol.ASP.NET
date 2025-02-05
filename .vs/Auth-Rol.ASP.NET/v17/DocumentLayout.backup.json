@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\cache\\infrastucture\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\cache\\redisconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\cache\\redisconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\users\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\users\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\project\\repository\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\project\\repository\\projectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\users\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\users\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\cache\\redisconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|solutionrelative:auth-rol.asp.net\\cache\\redisconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DCCBC7C6-FAA2-49E4-928C-1F454B45DBC8}|Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth-rol.asp.net\\userproject\\repository\\userprojectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -72,7 +72,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ServiciesBuilderExtensions.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Extensions\\ServiciesBuilderExtensions.cs",
               "RelativeDocumentMoniker": "Auth-Rol.ASP.NET\\Extensions\\ServiciesBuilderExtensions.cs",
@@ -80,12 +80,11 @@
               "RelativeToolTip": "Auth-Rol.ASP.NET\\Extensions\\ServiciesBuilderExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T19:53:31.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T19:53:31.485Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "RedisConnection.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Cache\\RedisConnection.cs",
               "RelativeDocumentMoniker": "Auth-Rol.ASP.NET\\Cache\\RedisConnection.cs",
@@ -98,13 +97,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ProjectRepository.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Project\\Repository\\ProjectRepository.cs",
               "RelativeDocumentMoniker": "Auth-Rol.ASP.NET\\Project\\Repository\\ProjectRepository.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Project\\Repository\\ProjectRepository.cs",
               "RelativeToolTip": "Auth-Rol.ASP.NET\\Project\\Repository\\ProjectRepository.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAiwEcAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-03T17:52:35.379Z",
               "EditorCaption": ""
@@ -119,8 +118,7 @@
               "RelativeToolTip": "Auth-Rol.ASP.NET\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-03T17:48:56.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T17:48:56.751Z"
             },
             {
               "$type": "Document",
@@ -132,18 +130,17 @@
               "RelativeToolTip": "Auth-Rol.ASP.NET\\UserProject\\Repository\\UserProjectRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T19:20:18.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-13T19:20:18.469Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Users\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Auth-Rol.ASP.NET\\Users\\Repository\\UserRepository.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Users\\Repository\\UserRepository.cs",
               "RelativeToolTip": "Auth-Rol.ASP.NET\\Users\\Repository\\UserRepository.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAzwJkAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAHwAAAAAAAAAAABBwI4AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-15T18:31:52.071Z",
               "EditorCaption": ""
@@ -156,7 +153,7 @@
               "RelativeDocumentMoniker": "Auth-Rol.ASP.NET\\Cache\\Infrastucture\\RedisService.cs",
               "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth-Rol.ASP.NET\\Cache\\Infrastucture\\RedisService.cs",
               "RelativeToolTip": "Auth-Rol.ASP.NET\\Cache\\Infrastucture\\RedisService.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAqwCkAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T14:19:15.661Z",
               "EditorCaption": ""

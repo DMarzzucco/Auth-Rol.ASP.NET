@@ -28,11 +28,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.InvalidPattern">
+            <summary>
+            Invalid Pattern
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.DeleteFromCacheAsync(System.String[])">
             <summary>
             Delete From Key Value
             </summary>
-            <param name="keys"></param>
+            <param name="pattern"></param>
             <returns></returns>
         </member>
         <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.GetFromCacheAsync``1(System.String)">
@@ -41,20 +47,6 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.InvalidateCacheByPatternAsync(System.String)">
-            <summary>
-            Invalida Key in cache
-            </summary>
-            <param name="pattern"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.SetScanKeyAsync(System.String)">
-            <summary>
-            Set Scan 
-            </summary>
-            <param name="pattern"></param>
             <returns></returns>
         </member>
         <member name="M:Auth_Rol.ASP.NET.Cache.Infrastucture.RedisService.SetToCacheAsync``1(System.String,``0)">

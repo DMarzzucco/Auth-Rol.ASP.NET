@@ -3,10 +3,9 @@
     public interface IRedisService
     {
         Task CleanRedis();
-        Task DeleteFromCacheAsync(params string[] keys);
+        Task<bool> DeleteFromCacheAsync(params string[] pattern);
         Task<T?> GetFromCacheAsync<T>(string key);
-        Task InvalidateCacheByPatternAsync(string pattern);
+        Task InvalidPattern();
         Task SetToCacheAsync<T>(string key, T value);
-        Task<List<string>> SetScanKeyAsync(string pattern);
     }
 }

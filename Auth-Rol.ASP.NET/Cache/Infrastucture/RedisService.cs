@@ -22,18 +22,36 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
         {
             await this._redis.ExecuteAsync("FLUSHALL");
         }
-
+        /// <summary>
+        /// Invalid Pattern
+        /// </summary>
+        /// <returns></returns>
+        public async Task InvalidPattern() {
+            var user = "UserModel:*";
+            var project = "ProjectModel:*";
+            await this.DeleteFromCacheAsync(user, project);
+        }
         /// <summary>
         /// Delete From Key Value
         /// </summary>
-        /// <param name="keys"></param>
+        /// <param name="pattern"></param>
         /// <returns></returns>
-        public async Task DeleteFromCacheAsync(params string[] keys)
+        public async Task<bool> DeleteFromCacheAsync(params string[] pattern)
         {
-            foreach (var key in keys)
+            bool deleted = false;
+
+            foreach (var patterns in pattern)
             {
-                await this._redis.KeyDeleteAsync(key);
+                var server = this._redis.Multiplexer.GetServer(this._redis.Multiplexer.GetEndPoints()[0]);
+                var keys = server.Keys(pattern: patterns).ToArray();
+
+                if (keys.Length > 0)
+                {
+                    await this._redis.KeyDeleteAsync(keys);
+                    deleted = true;
+                }
             }
+            return deleted;
         }
 
         /// <summary>
@@ -45,48 +63,12 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
         public async Task<T?> GetFromCacheAsync<T>(string key)
         {
             var data = await this._redis.StringGetAsync(key);
+
             if (string.IsNullOrEmpty(data)) return default;
+
             return JsonSerializer.Deserialize<T>(data, JsonSerializerHelper.Default);
         }
-        /// <summary>
-        /// Invalida Key in cache
-        /// </summary>
-        /// <param name="pattern"></param>
-        /// <returns></returns>
-        public async Task InvalidateCacheByPatternAsync(string pattern)
-        {
 
-            var keys = await this.SetScanKeyAsync(pattern);
-            if (keys.Any())
-                await this.DeleteFromCacheAsync(keys.ToString());
-        }
-
-        /// <summary>
-        /// Set Scan 
-        /// </summary>
-        /// <param name="pattern"></param>
-        /// <returns></returns>
-        public async Task<List<string>> SetScanKeyAsync(string pattern)
-        {
-            var keys = new List<string>();
-            var cursor = 0;
-
-            do
-            {
-                var scanResult = (RedisResult[]) await this._redis.ExecuteAsync("SCAN", cursor.ToString(), "MATCH", pattern, "COUNT", "100");
-
-                cursor = int.Parse(scanResult[0].ToString());
-
-                var foundKeys = ((RedisResult[])scanResult[1])
-                    .Select(k => k.ToString())
-                    .ToList();
-
-                keys.AddRange(foundKeys);
-
-            } while (cursor != 0);
-
-            return keys;
-        }
         /// <summary>
         /// Save Date in Cache Memory
         /// </summary>

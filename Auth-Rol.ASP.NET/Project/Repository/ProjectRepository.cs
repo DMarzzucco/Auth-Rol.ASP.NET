@@ -58,8 +58,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
             await this._context.SaveChangesAsync();
 
             // Eliminar el proyecto de Redis
-            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:{body.Id}*");
-            await this._redis.InvalidateCacheByPatternAsync($"UserModel");
+            await this._redis.InvalidPattern();
 
             return true;
         }
@@ -74,8 +73,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
             this._context.ProjectModel.Add(body);
             await this._context.SaveChangesAsync();
 
-            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:{body.Id}*");
-            await this._redis.InvalidateCacheByPatternAsync($"UserModel");
+            await this._redis.InvalidPattern();
 
             return true;
         }
@@ -117,9 +115,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
 
             //redis
             //await this._redis.CleanRedis();
-            await this._redis.InvalidateCacheByPatternAsync($"ProjectModel:{body.Id}*");
-            await this._redis.InvalidateCacheByPatternAsync($"UserModel:*");
-
+            await this._redis.InvalidPattern();
 
             return true;
         }
