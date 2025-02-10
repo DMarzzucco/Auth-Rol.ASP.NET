@@ -10,13 +10,13 @@ namespace Auth_Rol.ASP.NET.Users.Repository
 
     public class UserRepository : IUserRepository
     {
-        private readonly IRedisService _redis;
+        //private readonly IRedisService _redis;
         private readonly AppDbContext _context;
 
         public UserRepository(AppDbContext context, IRedisService redis)
         {
             this._context = context;
-            this._redis = redis;
+            //this._redis = redis;
         }
 
         /// <summary>
@@ -27,11 +27,11 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         public async Task<UsersModel?> FindByIdAsync(int id)
         {
 
-            string cacheKey = $"UserModel:{id}";
-            var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
-            if (user != null) return user;
+            //string cacheKey = $"UserModel:{id}";
+            //var user = await this._redis.GetFromCacheAsync<UsersModel>(cacheKey);
+            //if (user != null) return user;
 
-            user = await this._context.UserModel
+            var user = await this._context.UserModel
                 .Include(u => u.ProjectsIncludes)
                 .ThenInclude(pi => pi.Project)
                 .AsNoTracking()
@@ -41,7 +41,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
 
             user.ProjectsIncludes ??= new List<UsersProjectModel>();
 
-            await this._redis.SetToCacheAsync(cacheKey, user);
+            //await this._redis.SetToCacheAsync(cacheKey, user);
             //
             return user;
         }
@@ -51,12 +51,12 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<IEnumerable<UsersModel>> ToListAsync()
         {
-            string cacheKey = "UserModel:List";
-            var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
+            //string cacheKey = "UserModel:List";
+            //var user = await this._redis.GetFromCacheAsync<IEnumerable<UsersModel>>(cacheKey);
 
-            if (user != null) return user;
+            //if (user != null) return user;
 
-            user = await this._context.UserModel.Select(u => new UsersModel
+            var user = await this._context.UserModel.Select(u => new UsersModel
             {
                 Id = u.Id,
                 First_name = u.First_name,
@@ -70,7 +70,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
                 ProjectsIncludes = new List<UsersProjectModel>()
             }).ToListAsync();
 
-            await this._redis.SetToCacheAsync(cacheKey, user);
+            //await this._redis.SetToCacheAsync(cacheKey, user);
             //
             return user;
         }
@@ -102,8 +102,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             this._context.UserModel.Remove(date);
             await this._context.SaveChangesAsync();
             //
-            //await this._redis.CleanRedis();
-            await this._redis.InvalidPattern();
+            //await this._redis.InvalidPattern();
 
             return true;
         }
@@ -124,6 +123,10 @@ namespace Auth_Rol.ASP.NET.Users.Repository
         /// <returns></returns>
         public async Task<bool> UpdateAsync(UsersModel data)
         {
+            if (data == null || data.Id == 0)
+                throw new ArgumentNullException(nameof(data));
+
+            data.ProjectsIncludes ??= new List<UsersProjectModel>();
             // edti user
             var user = await this._context.UserModel.FirstOrDefaultAsync(u => u.Id == data.Id);
 
@@ -140,7 +143,7 @@ namespace Auth_Rol.ASP.NET.Users.Repository
             await this._context.SaveChangesAsync();
             //
 
-            await this._redis.InvalidPattern();
+            //await this._redis.InvalidPattern();
 
             //
             return true;

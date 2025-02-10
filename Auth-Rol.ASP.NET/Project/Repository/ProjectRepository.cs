@@ -11,11 +11,11 @@ namespace Auth_Rol.ASP.NET.Project.Repository
     public class ProjectRepository : IProjectRepository
     {
         private readonly AppDbContext _context;
-        private readonly IRedisService _redis;
+        //private readonly IRedisService _redis;
         public ProjectRepository(AppDbContext context, IRedisService redis)
         {
             this._context = context;
-            this._redis = redis;
+            //this._redis = redis;
         }
 
         /// <summary>
@@ -25,23 +25,23 @@ namespace Auth_Rol.ASP.NET.Project.Repository
         /// <returns></returns>
         public async Task<ProjectModel?> FinByIdAsync(int id)
         {
-            string cacheKey = $"ProjectModel:{id}";
-            var project = await this._redis.GetFromCacheAsync<ProjectModel>(cacheKey);
+            //string cacheKey = $"ProjectModel:{id}";
+            //var project = await this._redis.GetFromCacheAsync<ProjectModel>(cacheKey);
 
-            if (project != null) return project;
-            
-            project = await this._context.ProjectModel
-                .Include(p => p.UsersIncludes)
-                .ThenInclude(u => u.User)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Id == id);
+            //if (project != null) return project;
+
+            var project = await this._context.ProjectModel
+                 .Include(p => p.UsersIncludes)
+                 .ThenInclude(u => u.User)
+                 .AsNoTracking()
+                 .FirstOrDefaultAsync(u => u.Id == id);
 
             if (project == null) return null;
 
             project.UsersIncludes ??= new List<UsersProjectModel>();
 
             // serializa y alamacena el resultado en cache 
-            await this._redis.SetToCacheAsync(cacheKey, project);
+            //await this._redis.SetToCacheAsync(cacheKey, project);
 
             return project;
         }
@@ -58,7 +58,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
             await this._context.SaveChangesAsync();
 
             // Eliminar el proyecto de Redis
-            await this._redis.InvalidPattern();
+            //await this._redis.InvalidPattern();
 
             return true;
         }
@@ -73,7 +73,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
             this._context.ProjectModel.Add(body);
             await this._context.SaveChangesAsync();
 
-            await this._redis.InvalidPattern();
+            //await this._redis.InvalidPattern();
 
             return true;
         }
@@ -84,12 +84,12 @@ namespace Auth_Rol.ASP.NET.Project.Repository
         public async Task<IEnumerable<ProjectModel>> ToListAsync()
         {
 
-            string cacheKey = "ProjectModel:List";
-            var project = await this._redis.GetFromCacheAsync<IEnumerable<ProjectModel>>(cacheKey);
+            //string cacheKey = "ProjectModel:List";
+            ////var project = await this._redis.GetFromCacheAsync<IEnumerable<ProjectModel>>(cacheKey);
 
-            if (project != null) return project;
+            //if (project != null) return project;
 
-            project = await this._context.ProjectModel.Select(p => new ProjectModel
+            var project = await this._context.ProjectModel.Select(p => new ProjectModel
             {
                 Id = p.Id,
                 Name = p.Name,
@@ -97,7 +97,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
                 UsersIncludes = new List<UsersProjectModel>()
             }).ToListAsync();
 
-            await this._redis.SetToCacheAsync(cacheKey, project);
+            //await this._redis.SetToCacheAsync(cacheKey, project);
 
             return project;
         }
@@ -115,7 +115,7 @@ namespace Auth_Rol.ASP.NET.Project.Repository
 
             //redis
             //await this._redis.CleanRedis();
-            await this._redis.InvalidPattern();
+            //await this._redis.InvalidPattern();
 
             return true;
         }

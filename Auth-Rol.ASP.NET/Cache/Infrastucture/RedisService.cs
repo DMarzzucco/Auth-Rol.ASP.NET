@@ -62,6 +62,9 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
         /// <returns></returns>
         public async Task<T?> GetFromCacheAsync<T>(string key)
         {
+            if (string.IsNullOrEmpty(key))
+                throw new ArgumentNullException(nameof(key));
+
             var data = await this._redis.StringGetAsync(key);
 
             if (string.IsNullOrEmpty(data)) return default;
@@ -78,6 +81,12 @@ namespace Auth_Rol.ASP.NET.Cache.Infrastucture
         /// <returns></returns>
         public async Task SetToCacheAsync<T>(string key, T value)
         {
+            if (string.IsNullOrEmpty(key))
+                throw new ArgumentNullException(nameof(key));
+
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
             var serializer = JsonSerializer.Serialize(value, JsonSerializerHelper.Default);
             await this._redis.StringSetAsync(key, serializer, TimeSpan.FromMinutes(10));
         }

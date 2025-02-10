@@ -8,7 +8,7 @@
             {
                 o.AddPolicy("CorsPolicy", b =>
                 {
-                    b.WithOrigins("http://localhost:300.com")
+                    b.WithOrigins("http://localhost:8888")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
