@@ -1,9 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using User.Configurations.DBConnect.Extensions;
+using User.Extensions;
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddServicesBuilder(builder.Configuration);
+builder.Configuration.AddJsonFile("appsettings.json");
+
+//builder.WebHost.UseUrls("http://*:1080");
 
 var app = builder.Build();
 
@@ -13,6 +15,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
+app.UserApplicationBuilderExtensions();
+app.ApplyMigration();
+app.MapControllers();
 app.Run();

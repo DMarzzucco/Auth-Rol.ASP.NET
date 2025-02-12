@@ -18,9 +18,7 @@ namespace Auth_Rol.ASP.NET.Context
             base.OnConfiguring(optionsBuilder);
 
             if (!optionsBuilder.IsConfigured)
-            {
                 optionsBuilder.EnableSensitiveDataLogging();
-            }
         }
 
         public DbSet<UsersModel> UserModel { get; set; }
