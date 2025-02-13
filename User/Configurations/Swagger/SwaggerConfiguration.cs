@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace User.Configurations.Swagger
 {
@@ -11,8 +10,12 @@ namespace User.Configurations.Swagger
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(op =>
             {
-                op.SwaggerDoc("v1", new OpenApiInfo { Title = "API Gateway", Version = "v1" });
-                op.AddServer(new OpenApiServer { Url = "http://localhost:5024/swagger/v1/swagger.json" });
+                op.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "API User",
+                    Version = "v1",
+                    Description = "User CRUD"
+                });
             });
 
             return services;

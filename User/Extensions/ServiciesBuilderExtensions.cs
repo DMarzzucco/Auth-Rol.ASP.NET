@@ -11,6 +11,7 @@ namespace User.Extensions
             service.AddDatabaseConfiguration(configuration);
             service.AddServiceScope();
 
+            service.AddCORSPolicy();
             service.AddEndpointsApiExplorer();
             service.AddSwaggerConfiguration();
 

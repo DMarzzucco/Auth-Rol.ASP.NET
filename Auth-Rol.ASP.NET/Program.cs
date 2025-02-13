@@ -18,4 +18,5 @@ if (app.Environment.IsDevelopment())
 app.UserApplicationBuilderExtension();
 app.ApplyMigration();
 app.MapControllers();
+
 app.Run();

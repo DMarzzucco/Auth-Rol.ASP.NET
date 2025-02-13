@@ -12,6 +12,9 @@
                 op.SwaggerEndpoint("http://localhost:5024/swagger/v1/swagger.json", "Microservice API 1");
             });
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCors("CorsPolicy");
+
             return app;
         }
     }
