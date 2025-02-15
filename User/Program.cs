@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddServicesBuilder(builder.Configuration);
 builder.Configuration.AddJsonFile("appsettings.json");
 
-//builder.WebHost.UseUrls("http://*:1080");
+builder.WebHost.UseUrls("http://*:4080");
 
 var app = builder.Build();
 

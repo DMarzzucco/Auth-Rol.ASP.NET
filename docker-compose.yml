@@ -30,15 +30,15 @@ services:
   server:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=5024
-      - ASPNETCORE_HTTPS_PORTS=5024
-    container_name: auth-rol.asp.net
-    image: ${DOCKER_REGISTRY-}auth-rol.asp.net
+      - ASPNETCORE_HTTP_PORTS=4080
+      - ASPNETCORE_HTTPS_PORTS=4080
+    container_name: user.net
+    image: ${DOCKER_REGISTRY-}user
     build:
       context: .
-      dockerfile: Auth-Rol.ASP.NET/Dockerfile
+      dockerfile: User/Dockerfile
     ports:
-      - "5024:5024"
+      - "4080:4080"
     networks:
       - compose-bridge
       - redis_network

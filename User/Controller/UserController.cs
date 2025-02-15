@@ -5,7 +5,7 @@ using User.Service.Interface;
 
 namespace User.Controller
 {
-    [Route("api /[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -16,7 +16,7 @@ namespace User.Controller
             this._service = service;
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<ActionResult<UserModel>> RegisterUser([FromBody] CreateUserDTO body)
         {
 

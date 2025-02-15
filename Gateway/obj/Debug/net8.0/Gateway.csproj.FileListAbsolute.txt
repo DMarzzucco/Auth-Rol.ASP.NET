@@ -43,3 +43,7 @@ C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\refi
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\Gateway.pdb
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\Gateway.genruntimeconfig.cache
 C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\ref\Gateway.dll
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\bin\Debug\net8.0\Gateway.staticwebassets.endpoints.json
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\staticwebassets\msbuild.Gateway.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\darmarzrold\source\repos\Auth-Rol.ASP.NET\Gateway\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

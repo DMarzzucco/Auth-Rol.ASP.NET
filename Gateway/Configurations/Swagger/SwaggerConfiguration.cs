@@ -12,7 +12,7 @@ namespace Gateway.Configurations.Swagger
             services.AddSwaggerGen(op =>
             {
                 op.SwaggerDoc("v1", new OpenApiInfo { Title = "API Gateway", Version = "v1" });
-                op.AddServer(new OpenApiServer { Url = "http://localhost:5024/swagger/v1/swagger.json" });
+                op.AddServer(new OpenApiServer { Url = "http://localhost:4080/swagger/v1/swagger.json" });
             });
 
             return services;

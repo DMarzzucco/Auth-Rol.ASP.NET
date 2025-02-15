@@ -36,6 +36,7 @@ namespace User.Service
             var user = await this._repository.FindByIdAsync(id);
             if (user == null)
                 throw new KeyNotFoundException("User not found");
+
             return user;
         }
 

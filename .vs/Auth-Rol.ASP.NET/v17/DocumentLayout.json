@@ -3,48 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\configurations\\dbconnect\\dbconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\configurations\\dbconnect\\dbconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\utils\\filter\\globalfilterexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\utils\\filter\\globalfilterexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\configurations\\dbconnect\\extensions\\automigrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\configurations\\dbconnect\\extensions\\automigrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\servicescopeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\servicescopeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\configurations\\servicebuilderimplement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\configurations\\servicebuilderimplement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\extensions\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\extensions\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\configurations\\swagger\\swaggerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\configurations\\swagger\\swaggerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\configurations\\dbconnect\\helper\\waitforit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\configurations\\dbconnect\\helper\\waitforit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\customcontrollersextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\customcontrollersextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\swagger\\swaggerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\swagger\\swaggerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\extensions\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\extensions\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\ocelot\\ocelotconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\ocelot\\ocelotconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\configurations\\corsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\configurations\\corsconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\context\\configuration\\usermodelconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\context\\configuration\\usermodelconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 734,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,144 +70,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SwaggerConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "RelativeDocumentMoniker": "User\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "RelativeToolTip": "User\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T18:53:47.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApplicationBuilderExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Extensions\\ApplicationBuilderExtensions.cs",
-              "RelativeDocumentMoniker": "User\\Extensions\\ApplicationBuilderExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Extensions\\ApplicationBuilderExtensions.cs",
-              "RelativeToolTip": "User\\Extensions\\ApplicationBuilderExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T18:49:37.128Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CORSConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\CORSConfiguration.cs",
-              "RelativeDocumentMoniker": "User\\Configurations\\CORSConfiguration.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\CORSConfiguration.cs",
-              "RelativeToolTip": "User\\Configurations\\CORSConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-13T18:48:57.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Program.cs",
-              "RelativeDocumentMoniker": "User\\Program.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Program.cs",
-              "RelativeToolTip": "User\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T20:28:25.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ServiceBuilderImplement.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\ServiceBuilderImplement.cs",
-              "RelativeDocumentMoniker": "User\\Configurations\\ServiceBuilderImplement.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\ServiceBuilderImplement.cs",
-              "RelativeToolTip": "User\\Configurations\\ServiceBuilderImplement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAzAAAAAAAAAA==",
+              "Title": "ApplicationBuilderExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
+              "RelativeToolTip": "Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T20:25:00.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Controller\\UserController.cs",
-              "RelativeDocumentMoniker": "User\\Controller\\UserController.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Controller\\UserController.cs",
-              "RelativeToolTip": "User\\Controller\\UserController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T20:02:21.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ServiciesBuilderExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Extensions\\ServiciesBuilderExtensions.cs",
-              "RelativeDocumentMoniker": "User\\Extensions\\ServiciesBuilderExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Extensions\\ServiciesBuilderExtensions.cs",
-              "RelativeToolTip": "User\\Extensions\\ServiciesBuilderExtensions.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T19:15:38.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserModelConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Context\\Configuration\\UserModelConfiguration.cs",
-              "RelativeDocumentMoniker": "User\\Context\\Configuration\\UserModelConfiguration.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Context\\Configuration\\UserModelConfiguration.cs",
-              "RelativeToolTip": "User\\Context\\Configuration\\UserModelConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T17:33:15.839Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DBConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\DBConnect\\DBConfiguration.cs",
-              "RelativeDocumentMoniker": "User\\Configurations\\DBConnect\\DBConfiguration.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\DBConnect\\DBConfiguration.cs",
-              "RelativeToolTip": "User\\Configurations\\DBConnect\\DBConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T17:28:23.911Z",
+              "WhenOpened": "2025-02-15T15:14:38.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AutoMigrationExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\DBConnect\\Extensions\\AutoMigrationExtensions.cs",
-              "RelativeDocumentMoniker": "User\\Configurations\\DBConnect\\Extensions\\AutoMigrationExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\DBConnect\\Extensions\\AutoMigrationExtensions.cs",
-              "RelativeToolTip": "User\\Configurations\\DBConnect\\Extensions\\AutoMigrationExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAApAAAAAAAAAA==",
+              "Title": "ServiceScopeExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\ServiceScopeExtensions.cs",
+              "RelativeDocumentMoniker": "Gateway\\Configurations\\ServiceScopeExtensions.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\ServiceScopeExtensions.cs",
+              "RelativeToolTip": "Gateway\\Configurations\\ServiceScopeExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T17:27:26.498Z",
+              "WhenOpened": "2025-02-15T15:14:11.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiciesBuilderExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
+              "RelativeDocumentMoniker": "Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
+              "RelativeToolTip": "Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T15:10:38.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "WaitForIt.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\DBConnect\\Helper\\WaitForIt.cs",
-              "RelativeDocumentMoniker": "User\\Configurations\\DBConnect\\Helper\\WaitForIt.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\Configurations\\DBConnect\\Helper\\WaitForIt.cs",
-              "RelativeToolTip": "User\\Configurations\\DBConnect\\Helper\\WaitForIt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAANAAAAAAAAAA==",
+              "Title": "CustomControllersExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\CustomControllersExtensions.cs",
+              "RelativeDocumentMoniker": "Gateway\\Configurations\\CustomControllersExtensions.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\CustomControllersExtensions.cs",
+              "RelativeToolTip": "Gateway\\Configurations\\CustomControllersExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T17:23:50.823Z",
+              "WhenOpened": "2025-02-15T15:06:38.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GlobalFilterExeption.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
+              "RelativeDocumentMoniker": "Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
+              "RelativeToolTip": "Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T15:03:10.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SwaggerConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
+              "RelativeDocumentMoniker": "Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
+              "RelativeToolTip": "Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T14:58:48.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OcelotConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
+              "RelativeDocumentMoniker": "Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
+              "RelativeToolTip": "Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T14:58:44.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ocelot.json",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\ocelot.json",
+              "RelativeDocumentMoniker": "Gateway\\ocelot.json",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\ocelot.json",
+              "RelativeToolTip": "Gateway\\ocelot.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-15T14:58:13.922Z",
               "EditorCaption": ""
             }
           ]

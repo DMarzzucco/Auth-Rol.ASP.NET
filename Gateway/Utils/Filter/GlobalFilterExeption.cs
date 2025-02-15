@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System.Diagnostics;
 
 namespace Gateway.Utils.Filter
@@ -43,6 +44,11 @@ namespace Gateway.Utils.Filter
                 FileName = fileName,
                 NumberLine = numberLine
             };
+            context.Result = new ObjectResult(response)
+            {
+                StatusCode = statusCode
+            };
+            context.ExceptionHandled = true;
         }
 
         private class ErrorResponse

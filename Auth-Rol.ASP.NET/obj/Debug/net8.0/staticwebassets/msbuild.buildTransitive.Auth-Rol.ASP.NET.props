@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Auth-Rol.ASP.NET.props" />
-</Project>

@@ -4,8 +4,8 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 4080
+EXPOSE 4080
 
 
 # Esta fase se usa para compilar el proyecto de servicio
@@ -16,7 +16,13 @@ COPY ["User/User.csproj", "User/"]
 RUN dotnet restore "./User/User.csproj"
 COPY . .
 WORKDIR "/src/User"
+#dotnet ef
+RUN dotnet tool install --global dotnet-ef 
+ENV PATH="$PATH:/root/.dotnet/tools"
+#build
 RUN dotnet build "./User.csproj" -c $BUILD_CONFIGURATION -o /app/build
+#execute dotnet ef
+CMD dotnet ef database update --environment Production --project src/TASK-FLOW.NET
 
 # Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
 FROM build AS publish

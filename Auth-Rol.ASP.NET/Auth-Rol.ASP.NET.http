@@ -1,6 +1,0 @@
-@Auth_Rol.ASP.NET_HostAddress = http://localhost:5163
-
-GET {{Auth_Rol.ASP.NET_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

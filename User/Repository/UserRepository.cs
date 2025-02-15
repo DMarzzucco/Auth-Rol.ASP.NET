@@ -44,6 +44,12 @@ namespace User.Repository
             return this._context.UserModel.Any(u => u.Username == username);
         }
 
+        /// <summary>
+        /// Find By Key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public async Task<UserModel?> FinByKey(string key, object value)
         {
             var user = await this._context.UserModel
@@ -54,11 +60,25 @@ namespace User.Repository
             return user;
         }
 
+        /// <summary>
+        /// Find By Id Async
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<UserModel?> FindByIdAsync(int id)
         {
-            return await this._context.UserModel.FindAsync(id);
+           var user= await this._context.UserModel.FirstOrDefaultAsync(u=>u.Id == id);
+
+            if (user == null) return null;
+
+            return user;
         }
 
+        /// <summary>
+        /// Remove Async
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public async Task<bool> RemoveAsync(UserModel date)
         {
             this._context.UserModel.Remove(date);
@@ -66,11 +86,20 @@ namespace User.Repository
             return true;
         }
 
+        /// <summary>
+        /// To List Async
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<UserModel>> ToListAsync()
         {
             return await this._context.UserModel.ToListAsync();
         }
 
+        /// <summary>
+        /// Update Async
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateAsync(UserModel date)
         {
             this._context.UserModel.Entry(date).State = EntityState.Modified;

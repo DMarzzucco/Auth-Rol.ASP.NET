@@ -1,34 +1,8 @@
 [
   {
     "ContainingType": "User.Controller.UserController",
-    "Method": "RegisterUser",
-    "RelativePath": "api /User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "body",
-        "Type": "User.DTOs.CreateUserDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "User.Model.UserModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "User.Controller.UserController",
     "Method": "GetAllUser",
-    "RelativePath": "api /User",
+    "RelativePath": "api/User",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -48,7 +22,7 @@
   {
     "ContainingType": "User.Controller.UserController",
     "Method": "GetUserById",
-    "RelativePath": "api /User/{id}",
+    "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -74,7 +48,7 @@
   {
     "ContainingType": "User.Controller.UserController",
     "Method": "DeleteUser",
-    "RelativePath": "api /User/del/{id}",
+    "RelativePath": "api/User/del/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -90,7 +64,7 @@
   {
     "ContainingType": "User.Controller.UserController",
     "Method": "UpdateUser",
-    "RelativePath": "api /User/edit/{id}",
+    "RelativePath": "api/User/edit/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -107,5 +81,31 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "User.Controller.UserController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "User.DTOs.CreateUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "User.Model.UserModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

@@ -7,7 +7,7 @@
         {
           //"Host": "host.docker.internal",
           "Host": "localhost",
-          "Port": 5024
+          "Port": 4080
         }
       ],
       "DownstreamScheme": "http",
