@@ -9,6 +9,8 @@ namespace User.Extensions
         public static IServiceCollection AddServicesBuilder(this IServiceCollection service, IConfiguration configuration) {
 
             service.AddDatabaseConfiguration(configuration);
+
+            service.AddServiceControllerBuilder();
             service.AddServiceScope();
 
             service.AddCORSPolicy();

@@ -3,36 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\utils\\filter\\globalfilterexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\utils\\filter\\globalfilterexeption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\servicescopeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\servicescopeextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\extensions\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\extensions\\applicationbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\extensions\\serviciesbuilderextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\customcontrollersextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\customcontrollersextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\swagger\\swaggerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\swagger\\swaggerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\configurations\\ocelot\\ocelotconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\configurations\\ocelot\\ocelotconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\gateway\\utils\\middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{934BD3B1-A5F2-4E26-BCC8-8C63F859CC54}|Gateway\\Gateway.csproj|solutionrelative:gateway\\utils\\middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 734,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,106 +46,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationBuilderExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
-              "RelativeDocumentMoniker": "Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
-              "RelativeToolTip": "Gateway\\Extensions\\ApplicationBuilderExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Program.cs",
+              "RelativeDocumentMoniker": "Gateway\\Program.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Program.cs",
+              "RelativeToolTip": "Gateway\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:14:38.864Z",
+              "WhenOpened": "2025-02-17T22:08:45.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ServiceScopeExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\ServiceScopeExtensions.cs",
-              "RelativeDocumentMoniker": "Gateway\\Configurations\\ServiceScopeExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\ServiceScopeExtensions.cs",
-              "RelativeToolTip": "Gateway\\Configurations\\ServiceScopeExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "GlobalExceptionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Utils\\Middleware\\GlobalExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "Gateway\\Utils\\Middleware\\GlobalExceptionMiddleware.cs",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Utils\\Middleware\\GlobalExceptionMiddleware.cs",
+              "RelativeToolTip": "Gateway\\Utils\\Middleware\\GlobalExceptionMiddleware.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAYwAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:14:11.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ServiciesBuilderExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
-              "RelativeDocumentMoniker": "Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
-              "RelativeToolTip": "Gateway\\Extensions\\ServiciesBuilderExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:10:38.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CustomControllersExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\CustomControllersExtensions.cs",
-              "RelativeDocumentMoniker": "Gateway\\Configurations\\CustomControllersExtensions.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\CustomControllersExtensions.cs",
-              "RelativeToolTip": "Gateway\\Configurations\\CustomControllersExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:06:38.836Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GlobalFilterExeption.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
-              "RelativeDocumentMoniker": "Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
-              "RelativeToolTip": "Gateway\\Utils\\Filter\\GlobalFilterExeption.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T15:03:10.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SwaggerConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "RelativeDocumentMoniker": "Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "RelativeToolTip": "Gateway\\Configurations\\Swagger\\SwaggerConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:58:48.794Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OcelotConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
-              "RelativeDocumentMoniker": "Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
-              "RelativeToolTip": "Gateway\\Configurations\\Ocelot\\OcelotConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:58:44.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ocelot.json",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\ocelot.json",
-              "RelativeDocumentMoniker": "Gateway\\ocelot.json",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Gateway\\ocelot.json",
-              "RelativeToolTip": "Gateway\\ocelot.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-15T14:58:13.922Z",
+              "WhenOpened": "2025-02-17T22:05:16.543Z",
               "EditorCaption": ""
             }
           ]

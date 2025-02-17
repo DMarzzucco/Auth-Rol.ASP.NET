@@ -1,4 +1,5 @@
-﻿using Ocelot.Middleware;
+﻿using Gateway.Utils.Middleware;
+using Ocelot.Middleware;
 
 namespace Gateway.Extensions
 {
@@ -13,6 +14,7 @@ namespace Gateway.Extensions
                 op.SwaggerEndpoint("/swagger/v1/swagger.json", "API Gateway v1");
                 op.SwaggerEndpoint("http://localhost:5024/swagger/v1/swagger.json", "Microservice API 1");
             });
+
             app.UseHttpsRedirection();
             app.UseOcelot().Wait();
 

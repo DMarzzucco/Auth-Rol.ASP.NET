@@ -4,6 +4,7 @@ using User.DTOs;
 using User.Model;
 using User.Repository.Interface;
 using User.Service.Interface;
+using User.Utils.Exceptions;
 
 namespace User.Service
 {
@@ -35,16 +36,16 @@ namespace User.Service
         {
             var user = await this._repository.FindByIdAsync(id);
             if (user == null)
-                throw new KeyNotFoundException("User not found");
+                throw new NotFoundException("User not found");
 
             return user;
         }
 
         public async Task<UserModel> RegisterUser(CreateUserDTO body)
         {
-            if (this._repository.ExistsByUsername(body.Username)) throw new Exception("The username already exists");
+            if (this._repository.ExistsByUsername(body.Username)) throw new ConflictExceptions ("The username already exists");
 
-            if (this._repository.ExistsByEmail(body.Email)) throw new Exception("The Email already exists");
+            if (this._repository.ExistsByEmail(body.Email)) throw new ConflictExceptions ("The Email already exists");
 
             var date = this._mapper.Map<UserModel>(body);
 

@@ -2,6 +2,7 @@
 using User.Repository.Interface;
 using User.Service;
 using User.Service.Interface;
+using User.Utils.Filter;
 
 namespace User.Configurations
 {
@@ -9,6 +10,7 @@ namespace User.Configurations
     {
         public static IServiceCollection AddServiceScope(this IServiceCollection service) {
 
+            service.AddScoped<GlobalFilterExceptions>();
             service.AddScoped<IUserRepository, UserRepository>();
             service.AddScoped<IUserService, UserService>();
 

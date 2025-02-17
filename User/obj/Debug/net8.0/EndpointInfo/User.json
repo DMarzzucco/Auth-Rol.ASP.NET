@@ -202,42 +202,42 @@
     "schemas": {
       "CreateUserDTO": {
         "required": [
-          "age",
-          "email",
-          "first_name",
-          "last_name",
-          "password",
-          "roles",
-          "username"
+          "Age",
+          "Email",
+          "First_name",
+          "Last_name",
+          "Password",
+          "Roles",
+          "Username"
         ],
         "type": "object",
         "properties": {
-          "first_name": {
+          "First_name": {
             "type": "string",
             "nullable": true
           },
-          "last_name": {
+          "Last_name": {
             "type": "string",
             "nullable": true
           },
-          "age": {
+          "Age": {
             "type": "string",
             "nullable": true
           },
-          "username": {
+          "Username": {
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "Email": {
             "type": "string",
             "format": "email",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "type": "string",
             "nullable": true
           },
-          "roles": {
+          "Roles": {
             "$ref": "#/components/schemas/ROLES"
           }
         },
@@ -255,32 +255,32 @@
       "UpdateUserDTO": {
         "type": "object",
         "properties": {
-          "first_name": {
+          "First_name": {
             "type": "string",
             "nullable": true
           },
-          "last_name": {
+          "Last_name": {
             "type": "string",
             "nullable": true
           },
-          "age": {
+          "Age": {
             "type": "string",
             "nullable": true
           },
-          "username": {
+          "Username": {
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "Email": {
             "type": "string",
             "format": "email",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "type": "string",
             "nullable": true
           },
-          "roles": {
+          "Roles": {
             "$ref": "#/components/schemas/ROLES"
           }
         },
@@ -288,46 +288,46 @@
       },
       "UserModel": {
         "required": [
-          "age",
-          "email",
-          "first_name",
-          "last_name",
-          "password",
-          "roles",
-          "username"
+          "Age",
+          "Email",
+          "First_name",
+          "Last_name",
+          "Password",
+          "Roles",
+          "Username"
         ],
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "integer",
             "format": "int32"
           },
-          "first_name": {
+          "First_name": {
             "type": "string",
             "nullable": true
           },
-          "last_name": {
+          "Last_name": {
             "type": "string",
             "nullable": true
           },
-          "age": {
+          "Age": {
             "type": "string",
             "nullable": true
           },
-          "username": {
+          "Username": {
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "Email": {
             "type": "string",
             "format": "email",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "type": "string",
             "nullable": true
           },
-          "roles": {
+          "Roles": {
             "$ref": "#/components/schemas/ROLES"
           }
         },
