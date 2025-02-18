@@ -50,7 +50,7 @@ namespace User.Repository
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public async Task<UserModel?> FinByKey(string key, object value)
+        public async Task<UserModel?> FindByKey(string key, object value)
         {
             var user = await this._context.UserModel
                 .AsQueryable()

@@ -11,6 +11,6 @@ namespace User.Repository.Interface
         Task<bool> RemoveAsync(UserModel date);
         Task AddChangeAsync(UserModel date);
         Task<bool> UpdateAsync(UserModel date);
-        Task<UserModel?> FinByKey(string key, object value);
+        Task<UserModel?> FindByKey(string key, object value);
     }
 }
