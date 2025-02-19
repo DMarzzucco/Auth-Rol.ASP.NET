@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using User.Context.Configuration;
-using User.Model;
+using User.Module.Model;
 
 namespace User.Context
 {

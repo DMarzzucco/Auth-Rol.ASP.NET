@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using User.Context;
-using User.Model;
-using User.Repository.Interface;
+using User.Module.Model;
+using User.Module.Repository.Interface;
 
-namespace User.Repository
+namespace User.Module.Repository
 {
     public class UserRepository : IUserRepository
     {
         private readonly AppDBContext _context;
         public UserRepository(AppDBContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         /// <summary>
@@ -20,8 +20,8 @@ namespace User.Repository
         /// <returns></returns>
         public async Task AddChangeAsync(UserModel date)
         {
-            this._context.UserModel.Add(date);
-            await this._context.SaveChangesAsync();
+            _context.UserModel.Add(date);
+            await _context.SaveChangesAsync();
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace User.Repository
         /// <returns></returns>
         public bool ExistsByEmail(string email)
         {
-            return this._context.UserModel.Any(u => u.Email == email);
+            return _context.UserModel.Any(u => u.Email == email);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace User.Repository
         /// <returns></returns>
         public bool ExistsByUsername(string username)
         {
-            return this._context.UserModel.Any(u => u.Username == username);
+            return _context.UserModel.Any(u => u.Username == username);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace User.Repository
         /// <returns></returns>
         public async Task<UserModel?> FindByKey(string key, object value)
         {
-            var user = await this._context.UserModel
+            var user = await _context.UserModel
                 .AsQueryable()
                 .Where(u => EF.Property<object>(u, key).Equals(value))
                 .SingleOrDefaultAsync();
@@ -67,7 +67,7 @@ namespace User.Repository
         /// <returns></returns>
         public async Task<UserModel?> FindByIdAsync(int id)
         {
-           var user= await this._context.UserModel.FirstOrDefaultAsync(u=>u.Id == id);
+           var user= await _context.UserModel.FirstOrDefaultAsync(u=>u.Id == id);
 
             if (user == null) return null;
 
@@ -81,8 +81,8 @@ namespace User.Repository
         /// <returns></returns>
         public async Task<bool> RemoveAsync(UserModel date)
         {
-            this._context.UserModel.Remove(date);
-            await this._context.SaveChangesAsync();
+            _context.UserModel.Remove(date);
+            await _context.SaveChangesAsync();
             return true;
         }
 
@@ -92,7 +92,7 @@ namespace User.Repository
         /// <returns></returns>
         public async Task<IEnumerable<UserModel>> ToListAsync()
         {
-            return await this._context.UserModel.ToListAsync();
+            return await _context.UserModel.ToListAsync();
         }
 
         /// <summary>
@@ -102,8 +102,8 @@ namespace User.Repository
         /// <returns></returns>
         public async Task<bool> UpdateAsync(UserModel date)
         {
-            this._context.UserModel.Entry(date).State = EntityState.Modified;
-            await this._context.SaveChangesAsync();
+            _context.UserModel.Entry(date).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
             return true;
         }
     }

@@ -1,7 +1,7 @@
-﻿using User.DTOs;
-using User.Model;
+﻿using User.Module.DTOs;
+using User.Module.Model;
 
-namespace User.Service.Interface
+namespace User.Module.Service.Interface
 {
     public interface IUserService
     {

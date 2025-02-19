@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using User.Enums;
-using User.Model;
+using User.Module.Enums;
+using User.Module.Model;
 using User.Utils.Helper;
 
 namespace User.Context.Configuration

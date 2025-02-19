@@ -1,7 +1,7 @@
-﻿using User.Repository;
-using User.Repository.Interface;
-using User.Service;
-using User.Service.Interface;
+﻿using User.Module.Repository;
+using User.Module.Repository.Interface;
+using User.Module.Service;
+using User.Module.Service.Interface;
 using User.Utils.Filter;
 
 namespace User.Configurations

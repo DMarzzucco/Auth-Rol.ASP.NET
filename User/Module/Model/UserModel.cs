@@ -1,37 +1,43 @@
-﻿using System.ComponentModel.DataAnnotations;
-using User.Enums;
+﻿using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
+using User.Module.Enums;
 
-namespace User.DTOs
+namespace User.Module.Model
 {
-    public class UpdateUserDTO
+    public class UserModel
     {
+        public int Id { get; set; }
+
         //[SwaggerSchema("User FirstName")]
         //[SwaggerSchemaExample("Dario")]
-        public string? First_name { get; set; }
+        public required string First_name { get; set; }
 
         //[SwaggerSchema("User Lastname")]
         //[SwaggerSchemaExample("Marzzucco")]
-        public string? Last_name { get; set; }
+        public required string Last_name { get; set; }
 
         //[SwaggerSchema("User Age")]
         //[SwaggerSchemaExample("26")]
-        public string? Age { get; set; }
+        public required string Age { get; set; }
 
         //[SwaggerSchema("User username")]
         //[SwaggerSchemaExample("Darmarz")]
-        public string? Username { get; set; }
+        public required string Username { get; set; }
 
         //[SwaggerSchema("User  Email")]
         //[SwaggerSchemaExample("darmarz@gmail.com")]
         [EmailAddress]
-        public string? Email { get; set; }
+        public required string Email { get; set; }
 
         //[SwaggerSchema("User Password")]
         //[SwaggerSchemaExample("prometheus98")]
-        public string? Password { get; set; }
+        public required string Password { get; set; }
 
         //[SwaggerSchema("User Rol")]
         //[SwaggerSchemaExample("ADMIN")]
-        public ROLES? Roles { get; set; }
+        public required ROLES Roles { get; set; }
+
+        [SwaggerIgnore]
+        public string? RefreshToken { get; set; }
     }
 }

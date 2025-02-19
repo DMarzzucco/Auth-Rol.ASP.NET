@@ -1,4 +1,4 @@
-﻿namespace User.Enums
+﻿namespace User.Module.Enums
 {
     public enum ROLES
     {

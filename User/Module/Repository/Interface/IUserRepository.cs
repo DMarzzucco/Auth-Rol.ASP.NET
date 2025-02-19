@@ -1,6 +1,6 @@
-﻿using User.Model;
+﻿using User.Module.Model;
 
-namespace User.Repository.Interface
+namespace User.Module.Repository.Interface
 {
     public interface IUserRepository
     {

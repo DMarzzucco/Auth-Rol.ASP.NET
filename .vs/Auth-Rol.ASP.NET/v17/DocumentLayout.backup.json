@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9E1703B-1229-4238-A460-7906E9F3F092}|Auth\\Auth.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\auth\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9E1703B-1229-4238-A460-7906E9F3F092}|Auth\\Auth.csproj|solutionrelative:auth\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|c:\\users\\darmarzrold\\source\\repos\\auth-rol.asp.net\\user\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B32F919C-5620-4927-A275-285A38224041}|User\\User.csproj|solutionrelative:user\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,7 +13,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 126,
+          "DockedHeight": 134,
           "SelectedChildIndex": 6,
           "Children": [
             {
@@ -43,14 +43,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "Auth\\Service\\AuthService.cs",
-              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\Auth\\Service\\AuthService.cs",
-              "RelativeToolTip": "Auth\\Service\\AuthService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAxwBYAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T22:55:11.673Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\appsettings.json",
+              "RelativeDocumentMoniker": "User\\appsettings.json",
+              "ToolTip": "C:\\Users\\darmarzrold\\source\\repos\\Auth-Rol.ASP.NET\\User\\appsettings.json",
+              "RelativeToolTip": "User\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-19T13:54:19.628Z",
               "EditorCaption": ""
             }
           ]

@@ -1,13 +1,10 @@
-﻿using Swashbuckle.AspNetCore.Annotations;
-using System.ComponentModel.DataAnnotations;
-using User.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using User.Module.Enums;
 
-namespace User.Model
+namespace User.Module.DTOs
 {
-    public class UserModel
+    public class CreateUserDTO
     {
-        public int Id { get; set; }
-
         //[SwaggerSchema("User FirstName")]
         //[SwaggerSchemaExample("Dario")]
         public required string First_name { get; set; }
@@ -36,8 +33,5 @@ namespace User.Model
         //[SwaggerSchema("User Rol")]
         //[SwaggerSchemaExample("ADMIN")]
         public required ROLES Roles { get; set; }
-
-        [SwaggerIgnore]
-        public string? RefreshToken { get; set; }
     }
 }

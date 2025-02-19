@@ -1,37 +1,37 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using User.Enums;
+using User.Module.Enums;
 
-namespace User.DTOs
+namespace User.Module.DTOs
 {
-    public class CreateUserDTO
+    public class UpdateUserDTO
     {
         //[SwaggerSchema("User FirstName")]
         //[SwaggerSchemaExample("Dario")]
-        public required string First_name { get; set; }
+        public string? First_name { get; set; }
 
         //[SwaggerSchema("User Lastname")]
         //[SwaggerSchemaExample("Marzzucco")]
-        public required string Last_name { get; set; }
+        public string? Last_name { get; set; }
 
         //[SwaggerSchema("User Age")]
         //[SwaggerSchemaExample("26")]
-        public required string Age { get; set; }
+        public string? Age { get; set; }
 
         //[SwaggerSchema("User username")]
         //[SwaggerSchemaExample("Darmarz")]
-        public required string Username { get; set; }
+        public string? Username { get; set; }
 
         //[SwaggerSchema("User  Email")]
         //[SwaggerSchemaExample("darmarz@gmail.com")]
         [EmailAddress]
-        public required string Email { get; set; }
+        public string? Email { get; set; }
 
         //[SwaggerSchema("User Password")]
         //[SwaggerSchemaExample("prometheus98")]
-        public required string Password { get; set; }
+        public string? Password { get; set; }
 
         //[SwaggerSchema("User Rol")]
         //[SwaggerSchemaExample("ADMIN")]
-        public required ROLES Roles { get; set; }
+        public ROLES? Roles { get; set; }
     }
 }

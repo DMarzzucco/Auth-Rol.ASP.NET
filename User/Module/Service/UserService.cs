@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using User.DTOs;
-using User.Model;
-using User.Repository.Interface;
-using User.Service.Interface;
+using User.Module.DTOs;
+using User.Module.Model;
+using User.Module.Repository.Interface;
+using User.Module.Service.Interface;
 using User.Utils.Exceptions;
 
-namespace User.Service
+namespace User.Module.Service
 {
     public class UserService : IUserService
     {
@@ -16,8 +16,8 @@ namespace User.Service
 
         public UserService(IUserRepository repository, IMapper mapper)
         {
-            this._repository = repository;
-            this._mapper = mapper;
+            _repository = repository;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace User.Service
         public async Task DelteUser(int id)
         {
             var user = await GetById(id);
-            await this._repository.RemoveAsync(user);
+            await _repository.RemoveAsync(user);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace User.Service
         /// <returns></returns>
         /// <exception cref="NotFoundException"></exception>
         public async Task<UserModel> FindByValue(string key, object value) {
-            var user = await this._repository.FindByKey(key, value);
+            var user = await _repository.FindByKey(key, value);
             if (user == null) throw new NotFoundException("Value not found");
             return user;
         }
@@ -50,7 +50,7 @@ namespace User.Service
         /// <returns></returns>
         public async Task<IEnumerable<UserModel>> GetAll()
         {
-            return await this._repository.ToListAsync();
+            return await _repository.ToListAsync();
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace User.Service
         /// <exception cref="NotFoundException"></exception>
         public async Task<UserModel> GetById(int id)
         {
-            var user = await this._repository.FindByIdAsync(id);
+            var user = await _repository.FindByIdAsync(id);
             if (user == null)
                 throw new NotFoundException("User not found");
 
@@ -75,16 +75,16 @@ namespace User.Service
         /// <exception cref="ConflictExceptions"></exception>
         public async Task<UserModel> RegisterUser(CreateUserDTO body)
         {
-            if (this._repository.ExistsByUsername(body.Username)) throw new ConflictExceptions ("The username already exists");
+            if (_repository.ExistsByUsername(body.Username)) throw new ConflictExceptions ("The username already exists");
 
-            if (this._repository.ExistsByEmail(body.Email)) throw new ConflictExceptions ("The Email already exists");
+            if (_repository.ExistsByEmail(body.Email)) throw new ConflictExceptions ("The Email already exists");
 
-            var date = this._mapper.Map<UserModel>(body);
+            var date = _mapper.Map<UserModel>(body);
 
             var passwordHaser = new PasswordHasher<UserModel>();
             date.Password = passwordHaser.HashPassword(date, body.Password);
 
-            await this._repository.AddChangeAsync(date);
+            await _repository.AddChangeAsync(date);
             return date;
         }
 
@@ -98,7 +98,7 @@ namespace User.Service
             var user = await GetById(id);
             user.RefreshToken = RefreshToken;
 
-            await this._repository.UpdateAsync(user);
+            await _repository.UpdateAsync(user);
             return user;
         }
 
@@ -111,9 +111,9 @@ namespace User.Service
         public async Task<UserModel> UpdateUser(int id, UpdateUserDTO body)
         {
             var user = await GetById(id);
-            this._mapper.Map(body, user);
+            _mapper.Map(body, user);
 
-            await this._repository.UpdateAsync(user);
+            await _repository.UpdateAsync(user);
             return user;
         }
     }
