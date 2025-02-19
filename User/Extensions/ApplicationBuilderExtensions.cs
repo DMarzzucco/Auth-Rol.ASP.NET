@@ -1,4 +1,6 @@
-﻿namespace User.Extensions
+﻿using User.Module.Greeter;
+
+namespace User.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
@@ -10,6 +12,10 @@
             {
                 op.SwaggerEndpoint("/swagger/v1/swagger.json", "API Gateway v1");
                 op.SwaggerEndpoint("http://localhost:5024/swagger/v1/swagger.json", "Microservice API 1");
+            });
+            app.UseRouting();
+            app.UseEndpoints(e => {
+                e.MapGrpcService<UserServiceGrpcImple>();
             });
             app.UseHttpsRedirection();
             app.UseStaticFiles();

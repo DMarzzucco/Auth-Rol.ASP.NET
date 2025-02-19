@@ -9,7 +9,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Utils\Attributes\**" />
+    <Compile Remove="Utils\Helpers\**" />
+    <Compile Remove="Utils\Middleware\**" />
+    <Content Remove="Utils\Attributes\**" />
+    <Content Remove="Utils\Helpers\**" />
+    <Content Remove="Utils\Middleware\**" />
+    <EmbeddedResource Remove="Utils\Attributes\**" />
+    <EmbeddedResource Remove="Utils\Helpers\**" />
+    <EmbeddedResource Remove="Utils\Middleware\**" />
+    <None Remove="Utils\Attributes\**" />
+    <None Remove="Utils\Helpers\**" />
+    <None Remove="Utils\Middleware\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Google.Protobuf" Version="3.29.3" />
+    <PackageReference Include="Grpc" Version="2.46.6" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.67.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.69.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.12" />
 	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
 	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
@@ -18,9 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Utils\Helpers\" />
-    <Folder Include="Utils\Middleware\" />
-    <Folder Include="Utils\Attributes\" />
+    <Protobuf Include="Proto\UserServiceGrpc.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>
